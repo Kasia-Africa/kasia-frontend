@@ -7,7 +7,7 @@ import { RecAndDot } from '@app/components/atoms/rectangleAndDot'
 import { HomeCategoryProduct, HomeCategoryProductsData, TProduct} from '@app/types'
 import Loader from '@app/components/atoms/Loader';
 import { Spacer } from '@app/components/atoms/Spacer';
-import { PageWrapper } from '@app/components/ui/PageElement';
+import { ImageContainer, PageWrapper, ViewAllLink } from '@app/components/ui/PageElement';
 import Arrows from '@app/components/atoms/Arrows';
 import { format_price } from "@app/utils/helper";
 import Slider from "react-slick";
@@ -15,15 +15,6 @@ import Image from 'next/image';
 import { LikeButton } from '@app/components/atoms/like';
 import ShopCard from '@app/components/atoms/ProductCategoryCard'
 
-const ProductImage = styled.div`
-width: 189px;
-height: 127px;
-`
-const LikeButtonContainer = styled.div`
-position: absolute;
-top: 23px;
-left: 98px;
-`
 const ProductCategory = styled.div`
  width: 100%;
  margin-top:5px;
@@ -52,7 +43,10 @@ const ProductCategory = styled.div`
   }
 
   &.slick-next {
-    right: -20px;
+    right: 0px;
+  }
+  &.slick-prev {
+    left: 0px;
   }
   &.slick-prev,
   &.slick-next {
@@ -65,14 +59,15 @@ const ProductCategory = styled.div`
 const Header = styled.div`
 display: flex;
 flex-direction: column;
-`
+`;
 const Title = styled.h1`
-color: "#000000";
+color: #000;
+font-family: Poppins;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 text-align: center;
-font-size: 25px;
-font-weight: 500;
-letter-spacing: 4px;
-padding-top: 19px;
 text-transform: uppercase;
 `;
 const ItemsContainer = styled.div`
@@ -80,10 +75,9 @@ background: #F2F2F2;
 width: 1223px;
 margin: 0 auto;
 padding: 0 22.33px;
-margin-top: 40px;
-padding-top: 30px;
 display: flex;
 flex-direction: column;
+flex-shrink: 0;
 `
 export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCategoryProducts : HomeCategoryProductsData, } ) => {
   const { categoryProducts: product_categories, loading } = useCategoryProducts(initialCategoryProducts);
@@ -108,34 +102,34 @@ export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCate
                   </Header>
                   <Spacer/>
                     <Link href={`/products/categories/${category.slug}`}>
-                      <p className='text-[20px] uppercase text-right relative bottom-[50px]'>View All</p>
+                      <ViewAllLink/>
                     </Link>
                     <PageWrapper key={index}>
                     <ProductCategory>
                     <Slider {...slickSettings}>
                       { category.data.map((product : TProduct , i : number)=> {
-                        return <Link key={i} href={`/products/${product.slug}`} title={product.title} className='relative'>
+                        return <Link key={i} href={`/products/${product.slug}`} title={product.title} className='product-title relative'>
                           <ShopCard
                         key={product.slug}
                         color="white"
-                        className='flex flex-col justify-center items-center gap-2 cursor-pointer'
+                        className='flex flex-col justify-center items-center cursor-pointer gap-1'
                         width='shop' height='shop'>
-                          <LikeButtonContainer>
                           <LikeButton/>
-                          </LikeButtonContainer>
-                                <ProductImage>
-                                <Image
+                                <ImageContainer>
+                           <Image
                           src={product.featured_image}
                           alt={product.slug}
                           width={189}
                           height={127}
                           />
-                            </ProductImage>
-                            <Spacer/>
-                        <h2 className='product-title text-[20px] text-[#393939]'>{product.title}</h2>
+                            </ImageContainer>
+                            <Spacer height={17}/>
+                        <h2 className='font-bold text-[16px] text-[#393939]'>{product.title}</h2>
+                        <Spacer/>
                           <span className='text-[#393939]'>{format_price(product.price)}</span>
-                          <Spacer height = {5}/>
+                          <Spacer/>
                           <AddToCartButton>Add to cart</AddToCartButton>
+                          <Spacer/>
                     </ShopCard>
                         </Link>
                       
@@ -143,7 +137,7 @@ export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCate
                     })
                   }
                   </Slider>
-       </ProductCategory>
+                       </ProductCategory>
                   </PageWrapper>
                   </>
                 )

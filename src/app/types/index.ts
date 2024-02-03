@@ -129,14 +129,14 @@ export interface HomeCategoryProduct {
 }
 
 export interface TProduct {
-    id: number,
+    id?: number,
     title: string;
     slug: string;
     description: string;
-    price: number;
+    price: any;
     featured_image: string;
-    product_count?: number;
-    main_product_category_id: number;
+    product_count: number;
+    main_product_category_id?: number;
   }
 
 export interface CategoryProductData {

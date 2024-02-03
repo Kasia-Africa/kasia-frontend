@@ -1,38 +1,22 @@
-export const CartData = [
-    {
+
+export interface TProductTesting {
+    id?: number,
+    title: string;
+    slug: string;
+    description: string;
+    price: any;
+    featured_image: string;
+    product_count: number;
+    main_product_category_id?: number;
+  }
+export const TestData: TProductTesting =
+    { 
+        id: 1,
         slug: 'fruits',
-        name: "Papaya",
+        title: "lychee",
         price: "500",
-        src: "/papaya.svg",
-        alt: "papaya",
-        width: 115,
-        height: 86,
         description: 'The papaya, a tree with probable origin in south-central Mexico, is classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed',
-        link: 'papaya',
         product_count: 0,
-    },
-    {
-        name: "Fresh Meat",
-        price: "500",
-        src: "/meats.svg",
-        alt: "papaya",
-        width: 90,
-        height: 66,
-        description: 'The avocado, a tree with probable origin in south-central Mexico, is classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed',
-        link: 'fresh_meat',
-        slug: 'Meats\And\Poultry',
-        product_count: 0,
-    },
-    {
-        name: "Tumeric",
-        price: "N500",
-        src: "/tumeric.svg",
-        alt: "tumeric",
-        width: 115,
-        height: 86,
-        description: 'The tumeric, a tree with probable origin in south-central Mexico, is classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed',
-        link: 'tumeric',
-        slug: 'tumeric',
-        product_count: 0,
-    },
-]
+        featured_image: "/papaya.svg"
+    }
+   

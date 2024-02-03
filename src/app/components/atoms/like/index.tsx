@@ -1,7 +1,11 @@
 import {MouseEvent, useState} from 'react'
 import Image from "next/image"
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
+const LikeButtonContainer = styled.div`
+position: absolute;
+margin: 11.3px 11.8px 250.43px 186.52px;
+`
 export const LikeButton = ()=> {
    const [isLiked, setIsLiked] = useState(false)
    const handleLike = (e: MouseEvent<HTMLImageElement>)=> {
@@ -9,6 +13,7 @@ export const LikeButton = ()=> {
    setIsLiked(!isLiked)
    }
     return (
+        <LikeButtonContainer>
         <Image
         src= {isLiked ?
          `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='793.701' height='1000'%3E%3Cpath fill='%230f0' stroke='%230f0' stroke-width='18.7' d='M292.243 325.146c-93.193 0-168.827 68.619-168.827 153.167 0 172.001 191.243 217.099 321.562 387.141 123.208-168.999 321.563-220.631 321.563-387.141 0-84.548-75.635-153.167-168.827-153.167-67.598 0-125.779 36.212-152.736 88.31-26.957-52.098-85.137-88.31-152.735-88.31z'/%3E%3C/svg%3E` 
@@ -18,8 +23,9 @@ export const LikeButton = ()=> {
         alt=''
         width={19}
         height={16}
-        className={`relative left-[100px] bottom-5`}
+        className={`relative`}
         onClick={handleLike}
         /> 
+         </LikeButtonContainer>
     )
 }

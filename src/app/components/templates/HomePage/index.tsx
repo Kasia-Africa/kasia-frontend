@@ -4,14 +4,16 @@ import {HomeCategoryProducts } from '@app/components/organisms/HomeCategoryProdu
 import { ProductCategory } from '@app/components/organisms/ProductCategory';
 import { ShoppingHeaderImage } from '@app/components/organisms/shop-image';
 import { HomeCategoryProductsData, ProductCategoryData } from '@app/types';
+import { PageWrapper } from '@app/components/ui/PageElement';
 
 
 const HomeContainer = styled.div`
     width: 100%;
     margin: 0 auto;
     position: relative;
-    bottom: 100px;
+    top: 250px;
     padding: 0;
+    height: 2300px;
 `
 const HomePage =  ({ productCategories, categoryProducts } : { productCategories: ProductCategoryData, categoryProducts : HomeCategoryProductsData }) => {
     return (

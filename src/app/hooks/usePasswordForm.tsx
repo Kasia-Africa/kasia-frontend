@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import {useForm} from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
-import {TPasswordForm } from '../types';
+import {TPasswordForm, TUserData } from '../types';
 import { PasswordResetValidationSchema} from '../utils/validations';
 import useAuthService from './useAuthService';
 import useNotify from './useNotify';

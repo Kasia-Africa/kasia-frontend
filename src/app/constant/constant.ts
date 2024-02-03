@@ -1,14 +1,15 @@
 
   export interface Product {
     name: string;
-    price: any;
+    price?: any;
     src: string;
+    featured_img?: string;
     alt: string;
     width?: number;
     link?:string;
     height?: number;
     slug?: string;
-    product_count?: any;
+    product_count: number;
     description?: string;
   }
 
@@ -69,6 +70,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/watermelon.svg",
                 alt: "water melon",
                 width: 115,
+                product_count: 0,
                 height: 86
             }, {
                 name: "Papaya",
@@ -76,6 +78,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/papaya.svg",
                 alt: "papaya",
                 width: 115,
+                product_count: 0,
                 height: 86
             }, {
                 name: "Water Melon",
@@ -83,6 +86,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/watermelon.svg",
                 alt: "water melon",
                 width: 115,
+                product_count: 0,
                 height: 86
             }, {
                 name: "Soursop",
@@ -90,6 +94,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/papaya.svg",
                 alt: "papaya",
                 width: 115,
+                product_count: 0,
                 height: 86
             }, {
                 name: "Soursop",
@@ -97,6 +102,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/papaya.svg",
                 alt: "papaya",
                 width: 115,
+                product_count: 0,
                 height: 86
             }, {
                 name: "Soursop",
@@ -104,6 +110,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/papaya.svg",
                 alt: "papaya",
                 width: 115,
+                product_count: 0,
                 height: 86
             },
             {
@@ -112,6 +119,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/watermelon.svg",
                 alt: "water melon",
                 width: 115,
+                product_count: 0,
                 height: 86
             },{
                 name: "Water Melon",
@@ -119,6 +127,7 @@ export const kasia: TProductResponse[]  = [
                 src: "/watermelon.svg",
                 alt: "water melon",
                 width: 115,
+                product_count: 0,
                 height: 86
             },{
                 name: "Water Melon",
@@ -126,12 +135,14 @@ export const kasia: TProductResponse[]  = [
                 src: "/watermelon.svg",
                 alt: "water melon",
                 width: 115,
+                product_count: 0,
                 height: 86
             },{
                 name: "Water Melon",
                 price: "N500",
                 src: "/watermelon.svg",
                 alt: "water melon",
+                product_count: 0,
                 width: 115,
                 height: 86
             }
@@ -143,20 +154,22 @@ export const kasia: TProductResponse[]  = [
         data: [
         {
             name: "Fresh Meat",
-            price: "500",
+            price: 500,
             src: "/meats.svg",
             alt: "papaya",
             width: 90,
             height: 66,
             description: 'The avocado, a tree with probable origin in south-central Mexico, is classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed',
             link: 'fresh_meat',
-            slug: 'Meats\And\Poultry'
+                product_count: 0,
+                slug: 'Meats\And\Poultry'
         },   {
             name: "Fresh Meat",
             price: "500",
             src: "/meats.svg",
             alt: "papaya",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         },{
             name: "Red Meat",
@@ -164,7 +177,8 @@ export const kasia: TProductResponse[]  = [
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66,
+                product_count: 0,
+                height: 66,
             link: 'red_meat'
         },{
             name: "Red Meat",
@@ -172,20 +186,23 @@ export const kasia: TProductResponse[]  = [
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Red Meat",
             price: "N500",
             src: "/redmeat.svg",
             alt: "lychee",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         },{
             name: "Fresh Meat",
             price: "N200",
             src: "/meats.svg",
             alt: "papaya",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         },{
             name: "Red Meat",
@@ -193,41 +210,47 @@ export const kasia: TProductResponse[]  = [
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Red Meat",
             price: "N500",
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Red Meat",
             price: "N500",
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Red Meat",
             price: "N500",
             src: "/redmeat.svg",
             alt: "lychee",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Fresh Meat",
             price: "N200",
             src: "/meats.svg",
             alt: "papaya",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         },{
             name: "Fresh Meat",
             price: "N200",
             src: "/meats.svg",
             alt: "papaya",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         },
         ]
@@ -238,12 +261,14 @@ export const kasia: TProductResponse[]  = [
         data : [
         {
             name: "lettuce",
-            price: "N500",
+            price: 500,
             src: "/lettuce.svg",
             alt: "lettuce",
             width: 90,
             height: 66,
+            description: 'The lettuce, a tree with probable origin in south-central Mexico, is classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed',
             link: 'lettuce',
+             product_count: 1,
             slug: 'vegetables'
         }, {
             name: "Sour Sop",
@@ -251,27 +276,31 @@ export const kasia: TProductResponse[]  = [
             src: "/soursop.svg",
             alt: "sour sop",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         }, {
             name: "Park Choy",
             price: "500",
             src: "/choy.svg",
             alt: "choy",
             width: 90,
-            height: 66
+                product_count: 0,
+                height: 66
         }, {
             name: "Lettuce",
             price: "N200",
             src: "/lettuce.svg",
             alt: "papaya",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         }, {
             name: "Sour Sop",
             price: "N200",
             src: "/soursop.svg",
             alt: "papaya",
-            width: 90,
+                product_count: 0,
+                width: 90,
             height: 66
         },
     ]
@@ -287,35 +316,40 @@ export const kasia: TProductResponse[]  = [
         alt: "potatoes",
         width: 120,
         height: 120,
-        link: 'potatoes',
+                product_count: 0,
+                link: 'potatoes',
         slug: 'tubers'
     },  {
         name: "Sweet Apple",
         price: "200",
         src: "/yam.svg",
         alt: "sweet apple",
-        width: 100,
+                product_count: 0,
+                width: 100,
         height: 100
     }, {
         name: "Potatoes",
         price: "500",
         src: "/potatoes.svg",
         alt: "potatoes",
-        width: 120,
+                product_count: 0,
+                width: 120,
         height: 120
     }, {
         name: "Sweet Apple",
         price: "N200",
         src: "/yam.svg",
         alt: "sweet apple",
-        width: 100,
+                product_count: 0,
+                width: 100,
         height: 100
     },  {
         name: "Potatoes",
         price: "N500",
         src: "/potatoes.svg",
         alt: "potatoes",
-        width: 120,
+                product_count: 0,
+                width: 120,
         height: 120
     },
 ]
@@ -330,7 +364,8 @@ export const kasia: TProductResponse[]  = [
         src: "/tumeric.svg",
         alt: "tumeric",
         width: 115,
-        height: 86,
+                product_count: 0,
+                height: 86,
         link: 'tumeric',
         slug: 'spices'
     }, {
@@ -338,28 +373,32 @@ export const kasia: TProductResponse[]  = [
         price: "N500",
         src: "/chilly.svg",
         alt: "chilly",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     }, {
         name: "Tumeric",
         price: "N500",
         src: "/tumeric.svg",
         alt: "tumeric",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     }, {
         name: "CHilly",
         price: "N200",
         src: "/chilly.svg",
         alt: "tumeric",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     }, {
         name: "Tumeric",
         price: "N200",
         src: "/tumeric.svg",
         alt: "tumeric",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },
 ]
@@ -376,76 +415,119 @@ export const kasia: TProductResponse[]  = [
         width: 115,
         height: 86,
         link: 'wheat',
-        slug: 'flours'
+                product_count: 0,
+                slug: 'flours'
     }, {
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     }, {
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Wheat",
         price: "N500",
         src: "/wheat.svg",
         alt: "wheat",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     }, {
         name: "Corn",
         price: "N200",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
         height: 86
     }, {
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
-        width: 115,
+                product_count: 0,
+                width: 115,
+        height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+                product_count: 0,
+                width: 115,
+        height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+                product_count: 0,
+                width: 115,
+        height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+         product_count: 0,
+         width: 115,
+        height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
@@ -453,6 +535,63 @@ export const kasia: TProductResponse[]  = [
         src: "/corn.svg",
         alt: "corn",
         width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+        width: 115,
+                product_count: 0,
+                height: 86
+    },{
+        name: "Corn",
+        price: "N500",
+        src: "/corn.svg",
+        alt: "corn",
+                product_count: 0,
+                width: 115,
         height: 86
     },{
         name: "Corn",
@@ -460,112 +599,40 @@ export const kasia: TProductResponse[]  = [
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     },{
         name: "Corn",
         price: "N500",
         src: "/corn.svg",
         alt: "corn",
         width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
-    },{
-        name: "Corn",
-        price: "N500",
-        src: "/corn.svg",
-        alt: "corn",
-        width: 115,
-        height: 86
+                product_count: 0,
+                height: 86
     },
 ]
 }

@@ -4,10 +4,13 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
-const ImageContainer = styled.div`
-position: relative;
-bottom: 70px;
-width: 100%;
+const BannerImageContainer = styled.div`
+// position: relative;
+// bottom: 70px;
+// width: 100%;
+position: absolute;
+top: 0;
+margin-top: 185px;
 `;
 const ImageArrow = styled.div`
     width: 1223px;
@@ -26,7 +29,7 @@ const ImageDots = styled.div`
 export const ShoppingHeaderImage = ()=> {
     return (
         <PageWrapper>
- <ImageContainer>
+           <BannerImageContainer>
             <Images
                 src='/fruits.svg'
                 width={1223}
@@ -55,7 +58,7 @@ export const ShoppingHeaderImage = ()=> {
                  width={71}
                 />
             </ImageDots>
-                </ImageContainer>   
+                </BannerImageContainer>   
         </PageWrapper>
        
     )

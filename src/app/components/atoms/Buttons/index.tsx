@@ -1,3 +1,4 @@
+"use client"
 import styled from 'styled-components';
 import styledMap from 'styled-map';
 
@@ -40,12 +41,12 @@ const borderRadiusSize = styledMap('radius', {
     padding?: 'lg' | 'sm' | 'xs' | 'xxs' | 'xxxs'|'default';
     width?: 'wide' | 'book'| 'mini';
     kind?: 'facebook' | 'secondary' | 'tertiary' | 'default';
-    // fz?: 'xs' | 'default';
     secondary?: boolean;
     children?: React.ReactNode;
+    onClick?: ()=> void;
   }
   
-  export const Button = styled.button.attrs(({ className }) => ({
+  export const Button = styled.button.attrs(({ className}) => ({
     className: `text-lg focus:outline-none  inline-flex items-center justify-center ${className || ''}`,
   }))<ButtonProps>`
     background-color: ${buttonColor};

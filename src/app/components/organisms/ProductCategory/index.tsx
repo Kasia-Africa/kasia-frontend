@@ -21,6 +21,11 @@ const Title = styled.h1`
   letter-spacing: 4px;
   margin: 0;
   text-transform: uppercase;
+   display: flex;
+   margin: 0 auto;
+   font-size: 22px;
+ margin-top: 27px;
+ margin-bottom: 50px;
 `
 const ShopCategoryContainer = styled.div`
   display: flex;
@@ -88,7 +93,10 @@ const SliderCategoryContainer = styled.div`
     }
 
     &.slick-next {
-      right: -20px;
+      right: 0px;
+    }
+    &.slick-prev {
+      left: 0px;
     }
     &.slick-prev,
     &.slick-next {
@@ -116,9 +124,7 @@ export const ProductCategory = ({ initialProductCategories } : { initialProductC
     return (
         <ShopCategoryContainer>
             <Title>Shop By Category</Title>
-            <Spacer  height={15}/>
             <RecAndDot/>
-            <Spacer height={20} />
             <PageWrapper>
             { loading && <Loader color='green' /> } 
             <SliderCategoryContainer>

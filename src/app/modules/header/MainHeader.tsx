@@ -16,13 +16,12 @@ const NotificationContainer = styled.div`
 `
 
 const HomeHeader = styled.div`
+position: relative;
   display: flex;
   justify-content: space-between;
   padding-top: 18px;
   padding-bottom: 18px;
-  // width: 100%; 
   align-items: center;
-  z-index: 30;
 `;
 
 const MenuItemList = styled.ul`
@@ -84,7 +83,7 @@ const Header: React.FC = () => {
 }, [main_delivery_address])
 
   return (
-      <PageWrapper>
+      <PageWrapper className=''>
     <HomeHeader>
       <Link href={`/`} title='Home'>
         <Image

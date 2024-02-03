@@ -1,8 +1,9 @@
 import Image from "next/image"
+import { useState } from "react"
 import styled from "styled-components"
 import { useContext } from "react"
-import CartContext from "@app/store/cart-context"
 import Link from "next/link"
+import { CartContext } from "@app/hooks/useCarts"
 const IconContainer = styled.div`
    display: inline-flex;
    gap: 10px;
@@ -31,10 +32,10 @@ const OvalContainer = styled.div`
 
 export const CartIcon = ()=> {
   const cartCtx = useContext(CartContext)
-  const numberOfCartItems = cartCtx.items.reduce((current, item)=> {
-    return current + item
+  const numberOfCartItems = cartCtx.cartProducts && Array.isArray(cartCtx.cartProducts) && cartCtx.cartProducts.reduce((current, item)=> {
+    return current + item.product_count
   }, 0)
-
+  const [online, setOnline] = useState(true)
 return (
     <IconContainer>
       <div className="relative">
@@ -45,9 +46,11 @@ return (
         width={32}
         height={32}
         />
+        { online && 
           <OvalContainer>
               <span>{numberOfCartItems}</span>
           </OvalContainer>
+        }
         </Link>
       </div>
       <div>
