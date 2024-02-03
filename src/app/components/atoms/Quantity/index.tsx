@@ -1,4 +1,3 @@
-import { TProduct } from '@app/types';
 import React from 'react';
 
 interface QuantityProps {

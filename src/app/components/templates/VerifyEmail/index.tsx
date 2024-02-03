@@ -1,6 +1,5 @@
 "use client"
 import React, {useState,  ChangeEvent} from 'react'
-import Link from 'next/link';
 import { toast } from 'react-toastify';
 import AuthCard  from '@app/components/atoms/Card';
 import styled from 'styled-components';

@@ -9,7 +9,6 @@ import { LikeButton } from "@app/components/atoms/like";
 import { RecAndDot } from "@app/components/atoms/rectangleAndDot";
 // import ReviewStarRating from "@app/components/atoms/star_rating";
 import { TProductResponse } from "@app/constant/constant";
-import CartProvider from "@app/store/cart-provider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

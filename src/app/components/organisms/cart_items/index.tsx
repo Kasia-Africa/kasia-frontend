@@ -2,7 +2,6 @@ import { Separator } from '@app/components/atoms/Separator';
 import { Spacer } from '@app/components/atoms/Spacer';
 import { RecAndDot } from "@app/components/atoms/rectangleAndDot";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import React from "react";
 import styled from "styled-components"
 const Container = styled.div`

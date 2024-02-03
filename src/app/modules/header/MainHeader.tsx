@@ -6,7 +6,6 @@ import { CartIcon} from '@app/components/atoms/cart_icon';
 import { ProfilePicture } from '@app/components/atoms/profile-picture';
 import { NotificationIcon } from '@app/components/atoms/notification';
 import Link from 'next/link';
-import CartProvider from '@app/store/cart-provider';
 import { PageWrapper } from '@app/components/ui/PageElement';
 import useR from '@app/hooks/useR';
 import Loader from '@app/components/atoms/Loader';

@@ -3,6 +3,7 @@ import ProductsDetails from '@app/components/organisms/product_details'
 import { BaseLayout } from '@app/layouts'
 import { usePathname } from 'next/navigation'
 import { kasia } from '@app/constant/constant'
+
 function ProductDetailsPage () {
     const pathname = usePathname()
     const pageTitle = pathname ? `Kasia | ${pathname.split('/').pop()}` : 'Kasia';
@@ -21,4 +22,5 @@ function ProductDetailsPage () {
     )
 }
 ProductDetailsPage.Layout = BaseLayout
+
 export default ProductDetailsPage;
