@@ -1,0 +1,35 @@
+import React from 'react';
+import Head from 'next/head';
+import { BaseLayout } from '@app/layouts';
+import getData from '@app/helpers/getData';
+import { ProductCategoryData } from '@app/types';
+import HomePage from '@app/components/templates/HomePage';
+
+function App({ productCategoryData, homeCategoryProductsData } : { productCategoryData: ProductCategoryData, homeCategoryProductsData : any }): JSX.Element {
+    return (
+        <>
+            <Head>
+                <title>Home - Welcome to Plusity</title>
+            </Head>
+            <HomePage productCategories={productCategoryData} categoryProducts={homeCategoryProductsData} />
+        </>
+    );
+}
+App.Layout = BaseLayout;
+
+export const getStaticProps = async () => {
+    try {
+        const productCategoryData = await getData(`products/categories`);
+        const homeCategoryProductsData = await getData(`categories/products/home`);
+
+        return {
+            props : { productCategoryData, homeCategoryProductsData }
+        }
+
+
+    } catch (e) {
+        return { props: {} };
+      }
+}
+
+export default App;

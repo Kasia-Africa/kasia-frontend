@@ -1,0 +1,31 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+      ["styled-components", { "ssr": true,   "displayName": true,
+      "preprocess": false }],
+      [
+        "module-resolver",
+        {
+          "root": ["./"],
+          "alias": {
+            "@app": "./src/app/",
+            "@components": "./src/app/components/",
+            "@ui": "./src/app/components/ui/",
+            "@icons": "./src/app/utils/icons/",
+            "@constants": "./src/app/constants/",
+            "@modules": "./src/app/modules/",
+            "@typed": "./src/app/types/",
+            "@atoms/*": "./src/app/components/atoms",
+            "@molecules/*": "./src/app/components/molecules",
+            "@organisms/*": "./src/app/components/organisms",
+            "@templates/*": "./src/app/components/templates",
+            "@hooks": "./src/app/hooks/",
+            "@helpers": "./src/app/helpers/",
+            "@utils": "./src/app/utils/",
+            "@hoc": "./src/app/hoc/"
+          },
+          "extensions": [".js", ".jsx", ".tsx", ".ts"]
+        }
+      ]
+    ]
+  }
