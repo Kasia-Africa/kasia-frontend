@@ -22,7 +22,7 @@ import { useCart } from "@app/hooks/useCarts";
 import { TProductTesting } from "@app/constant/details";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/router";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import useNotify from "@app/hooks/useNotify";
 // import theme from "@app/styles/theme";
 const Container =  styled.div `
@@ -167,39 +167,39 @@ flex-shrink: 0;
 text-align: justify;
 margin-bottom: 13px
 `;
-const GetYourGroceries = styled.div`
-width: 1489px;
-margin: auto auto;
-height: 269px;
-flex-shrink: 0;
-border-radius: 14.516px;
-background: linear-gradient(165deg, #FFF130 -8.53%, #FFDB21 85.65%);
-position: relative;
-// display: flex;
-// justify-content: center;
-`;
-const GetYourGroceriesText = styled.div`
-width: 340px;
-height: 109.718px;
-flex-shrink: 0;
-margin: 40.9px 823px 111px 319px;
-font-weight: 600;
-position: absolute;
-font-size: 15px;
-`
-const GroceriesButton = styled.button`
-margin: 178px 953px 43.4px 317px;
-width: 203.631px;
-height: 47.254px;
-flex-shrink: 0;
-border-radius: 12.097px;
-background: #39B54A;
-text-transform: uppercase;
-color: #fff;
-font-size: 14px;
-font-weight: 500;
-padding: 18.7px 14.11px 18.12px 24.75px;
-`;
+// const GetYourGroceries = styled.div`
+// width: 1489px;
+// margin: auto auto;
+// height: 269px;
+// flex-shrink: 0;
+// border-radius: 14.516px;
+// background: linear-gradient(165deg, #FFF130 -8.53%, #FFDB21 85.65%);
+// position: relative;
+// // display: flex;
+// // justify-content: center;
+// `;
+// const GetYourGroceriesText = styled.div`
+// width: 340px;
+// height: 109.718px;
+// flex-shrink: 0;
+// margin: 40.9px 823px 111px 319px;
+// font-weight: 600;
+// position: absolute;
+// font-size: 15px;
+// `
+// const GroceriesButton = styled.button`
+// margin: 178px 953px 43.4px 317px;
+// width: 203.631px;
+// height: 47.254px;
+// flex-shrink: 0;
+// border-radius: 12.097px;
+// background: #39B54A;
+// text-transform: uppercase;
+// color: #fff;
+// font-size: 14px;
+// font-weight: 500;
+// padding: 18.7px 14.11px 18.12px 24.75px;
+// `;
 const Price = styled.span`
 color: #FE9F09;
 font-family: Poppins;
@@ -221,7 +221,7 @@ export interface cartDataType {
 //    position: 'top-center'});
 function ProductsDetails ({productsInformation, cartDataCat}: {productsInformation: TProductResponse[], cartDataCat: TProductTesting}): JSX.Element {
    const {success} = useNotify()
-   const {handleAddProductToCart, cartProducts, cartTotalQty} = useCart()
+   const {handleAddProductToCart, cartProducts} = useCart()
    const [isProductInCart, setIsProductInCart] = useState(false)
    const [cartProduct, setCartProduct]= useState<TProductTesting>({
       id: cartDataCat.id,
@@ -249,7 +249,7 @@ const router = useRouter()
             setIsProductInCart(true)
          }
       }
-   }, [cartProducts])
+   }, [cartDataCat.id, cartProducts])
    const pathname = usePathname()
    const handleQtyIncrease = useCallback(()=> {
       if(cartProduct.product_count === 20) {

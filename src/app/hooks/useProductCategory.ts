@@ -1,7 +1,7 @@
 'use client'
 import useSWR from 'swr';
 import getData from '@app/helpers/getData';
-import { HomeCategoryProductsData, ProductCategoryData, TProductCategory } from '@app/types';
+import { HomeCategoryProductsData, ProductCategoryData } from '@app/types';
 
 
 export function useProductCategory(

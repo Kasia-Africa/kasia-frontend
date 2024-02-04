@@ -5,7 +5,7 @@ export default {
   component: AuthCard
 }
 
-export const cardTest:React.FC<CardProps> = ()=> <AuthCard height='high'>Default</AuthCard>
-export const cardTest1:React.FC<CardProps> = ()=> <AuthCard>Minimum</AuthCard>
+export const CardTest:React.FC<CardProps> = ()=> <AuthCard height='high'>Default</AuthCard>
+export const CardTest1:React.FC<CardProps> = ()=> <AuthCard>Minimum</AuthCard>
 
 

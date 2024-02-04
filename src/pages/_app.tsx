@@ -14,13 +14,12 @@ import { ThemeProvider } from 'styled-components';
 import theme from '@app/styles/theme';
 import '../app/styles/globals.css';
 import { CartProvider } from '@app/utils/provider';
-import { Toaster } from 'react-hot-toast';
 
 Router.events.on('routeChangeStart', () => {
     NProgress.start();
 });
 
-Router.events.on('routeChangeComplete', (url: string) => {
+Router.events.on('routeChangeComplete', () => {
     NProgress.done();
 });
 
@@ -67,15 +66,15 @@ function MainApp(props: any) {
 
 // @ts-ignore
 MainApp.getInitialProps = async (appContext: any) => {
-    const { ctx } = appContext;
+    // const { ctx } = appContext;
     const appProps = await App.getInitialProps(appContext);
-    let userAgent;
-    // @ts-ignore
-    if (process && process.browser) {
-        userAgent = navigator.userAgent;
-    } else {
-        userAgent = ctx.req.headers['user-agent'];
-    }
+    // let userAgent;
+    // // @ts-ignore
+    // if (process && process.browser) {
+    //     userAgent = navigator.userAgent;
+    // } else {
+    //     userAgent = ctx.req.headers['user-agent'];
+    // }
 
     return { ...appProps };
 };
