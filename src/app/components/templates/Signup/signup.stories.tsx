@@ -1,7 +1,7 @@
-import SignUpPage from ".";
+import SignUp from ".";
 
 export default {
     title: 'Molecules/Signup',
-    component: <SignUpPage/>
+    component: <SignUp/>
 }
-export const SignUpMolecule = ()=> <SignUpPage/>
+export const SignupMolecule = ()=> <SignUp/>

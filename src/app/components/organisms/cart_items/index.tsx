@@ -194,8 +194,8 @@ const notify = () => toast('product Removed',  {
                 <Separator className='relative mb-14 m-auto w-[1200px]'/>
                 <div className=''>
                   {
-                    cartProducts && cartProducts.map((item, i)=> {
-                      return <div className='pb-7 box-border' key={i}>
+                    cartProducts && cartProducts.map((item)=> {
+                      return <div className='pb-7 box-border'>
                         <CartContent item= {item} key={item.id} />
                         <CartRemoveAndLikeContainer >
                         <Image 

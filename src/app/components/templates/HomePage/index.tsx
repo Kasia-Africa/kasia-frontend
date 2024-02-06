@@ -4,6 +4,7 @@ import {HomeCategoryProducts } from '@app/components/organisms/HomeCategoryProdu
 import { ProductCategory } from '@app/components/organisms/ProductCategory';
 import { ShoppingHeaderImage } from '@app/components/organisms/shop-image';
 import { HomeCategoryProductsData, ProductCategoryData } from '@app/types';
+import { PageWrapper } from '@app/components/ui/PageElement';
 
 
 const HomeContainer = styled.div`

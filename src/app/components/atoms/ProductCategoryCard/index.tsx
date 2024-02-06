@@ -17,6 +17,11 @@ const cardWidth = styledMap('width', {
     desc: '414px',
     default: '288.73px',
 })
+const cardHeight = styledMap('height', {
+   all: '259.43px',
+    shop: '259.435px',
+    default: '244px'
+})
 
 
 const CardWrapper = styled.div<CardProps>`

@@ -30,7 +30,7 @@ export const CartContextProvider = (props: Props)=> {
             return [...ProductsArray, product]
         });
         localStorage.setItem('cartProduct', JSON.stringify([...cartProducts, product]))
-    },[cartProducts])
+    },[])
    const handleRemoveProduct = useCallback((product: TProductTesting)=> {
       if(cartProducts) {
         const filteredProduct = cartProducts.filter((item)=> {
@@ -40,7 +40,7 @@ export const CartContextProvider = (props: Props)=> {
         localStorage.removeItem('cartProduct')
         success('product removed succesfully')
       }
-   }, [cartProducts, success])
+   }, [])
      useEffect(()=> {
         const storeCartItems = localStorage.getItem('cartProduct');
         if (storeCartItems) {

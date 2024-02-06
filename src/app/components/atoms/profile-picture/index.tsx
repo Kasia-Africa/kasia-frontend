@@ -96,14 +96,14 @@ export const ProfilePicture = ()=> {
             isAuthenticated() ? 
             <>
                <li>
-                <Link href={`/profile/me`} title='My Profile'>My Profile</Link>
+                <Link href={`profile/me`} title='My Profile'>My Profile</Link>
               </li> 
               <li>
                 <button onClick={logout} title="Logout">Logout</button>
               </li>
             </> : 
             <li>
-              <Link href={'/login'} title='Login'>Login</Link>
+              <Link href={'login'} title='Login'>Login</Link>
             </li>
           }
       </DropDownItems>

@@ -36,7 +36,7 @@ function BaseLayout(props: Props): JSX.Element {
             }
         }
         isLogout && performLogout()
-    }, [logout, isLogout])
+    }, [logout])
     return isLogout ?  (
         <Loader height={500} color='red'/>
     ): (
