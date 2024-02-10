@@ -11,7 +11,6 @@ import { TiSocialFacebook } from "react-icons/ti";
 import { PiTelegramLogo } from "react-icons/pi";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import {FaGooglePlusG, FaWhatsapp } from "react-icons/fa"
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 const Footer = styled.footer`
     background: radial-gradient(88.48% 72.82% at 50% 75.83%, #344634 0%, #171717 100%);
@@ -48,10 +47,6 @@ line-height: 1.125;
 margin-bottom: 1rem;
 `
 export default function MainFooter() {
-const router = useRouter()
-const handleLogoLink = () => {
-        router.push('/')
-}
     return (
         <Footer>
             <PageWrapper>

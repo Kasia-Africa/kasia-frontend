@@ -5,7 +5,6 @@ import { MainFooter } from '@modules/footer';
 import styled from 'styled-components';
 import useLogout from '@app/hooks/useLogout';
 import Loader from '@app/components/atoms/Loader';
-// import { CartProvider } from '@app/utils/provider';
 interface Props {
     children?: ReactNode;
 }
@@ -36,7 +35,7 @@ function BaseLayout(props: Props): JSX.Element {
             }
         }
         isLogout && performLogout()
-    }, [logout])
+    }, [logout, isLogout])
     return isLogout ?  (
         <Loader height={500} color='red'/>
     ): (

@@ -1,18 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
 import { InfoLayout} from '@app/layouts';
-import TNC from '@app/components/templates/DefaultPages/Terms';
+import TermsAndCondition from '@app/components/templates/DefaultPages/Terms';
 
-function TnC(): JSX.Element {
+function TNC(): JSX.Element {
     return (
         <>
             <Head>
                 <title>Kasia | Terms And Conditions</title>
             </Head>
-            <TNC/>
+            <TermsAndCondition/>
         </>
     );
 }
-TnC.Layout = InfoLayout;
+TNC.Layout = InfoLayout;
 
-export default TnC;
+export default TNC;
