@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react'
 import Link from 'next/link';
 import AuthCard  from '@app/components/atoms/Card';
@@ -45,7 +44,7 @@ text-align: center;
 justify-content: center;
 `;
 
-export default function SignUpPage() {
+const SignUpPage = () =>  {
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const togglePasswordVisibility = () => {
     setPasswordVisibility((prev)=> !prev)
@@ -173,3 +172,5 @@ export default function SignUpPage() {
     </Container>
   );
 }
+
+export default SignUpPage

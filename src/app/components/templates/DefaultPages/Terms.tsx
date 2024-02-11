@@ -52,17 +52,17 @@ padding-top: 10px;
    font-size: 20px;
   }
 `
-const TNC: React.FC = ()=> {
+const TermsAndCondition: React.FC = ()=> {
     return (
         <>
     <Title>
-    <p>Terms and Conditions</p> 
+    <p>Terms And Condition</p> 
     </Title>
     <InfoBody>
         <Information>
             <Highlight>Kasia terms and conditions</Highlight>
-            <Description>Please read these Terms and Conditions (&apos;Terms&apos;, &apos;Terms and Conditions&apos;) carefully before using the application or https://www.plusity.com website (the &apos;Service&apos;)
-             operated by PLUSITY (&apos;us&apos;, &apos;we&apos;, or &apos;our&apos;).</Description>
+            <Description>Please read these Terms and Conditions (&quot;Terms&quot;, &quot;Terms and Conditions&quot;) carefully before using the application or https://www.plusity.com website (the &quot;Service&quot;)
+             operated by PLUSITY (&quot;us&quot; , &quot; we&quot; , or &quot; our&quot; ).</Description>
         </Information>
         <Information>
             <Highlight>Content</Highlight>
@@ -102,7 +102,7 @@ We strongly advise you to read the terms and conditions and privacy policies of 
         We may terminate or suspend your access to the Service immediately, without prior notice or liability, in our absolute and sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
 All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
 Indemnification
-You agree to defend, indemnify and hold harmless PLUSITY and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney&quot;s fees), resulting from or arising out of a. your use and access of the Service, or b. a breach of these Terms.
+You agree to defend, indemnify and hold harmless PLUSITY and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney&apos;s fees), resulting from or arising out of a) your use and access of the Service, or b) a breach of these Terms.
         </Description>
      </Information>
      <Information>
@@ -127,7 +127,7 @@ PLUSITY will assist Participant in establishing and analyzing lab test results. 
 PLUSITY will assist Participant in establishing a desire for change and provide guidance in what that change will look like for each individual Participant with the understanding that such results will vary.
 PLSUTIY, if provided with all established and reported data by Participant, will direct set parameters (including, but not limited to, intake and output) to effect desired change.
 PLUSITY will provide an environment of support, community, trust, and comradery.
-PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY’s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
+PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY&apos;s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
         </Description>
      </Information>
      <Information>
@@ -169,4 +169,5 @@ By continuing to access or use our Service after any revisions become effective,
         </>
     )
 }
-export default TNC
+export default TermsAndCondition
+

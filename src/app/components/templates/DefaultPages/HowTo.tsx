@@ -113,7 +113,7 @@ You agree to defend, indemnify and hold harmless PLUSITY and its licensee and li
         In no event shall PLUSITY, or its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose..
 Disclaimer
 Your use of the Service is at your sole risk. The Service is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.
-PLUSITY its subsidiaries, affiliates, and its licensors do not warrant that a the Service will function uninterrupted, secure or available at any particular time or location; b any errors or defects will be corrected; c. the Service is free of viruses or other harmful components; or d the results of using the Service will meet your requirements.
+PLUSITY its subsidiaries, affiliates, and its licensors do not warrant that a the Service will function uninterrupted, secure or available at any particular time or location; b any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d the results of using the Service will meet your requirements.
         </Description>
      </Information>
      <Information>
@@ -127,7 +127,7 @@ PLUSITY will assist Participant in establishing and analyzing lab test results. 
 PLUSITY will assist Participant in establishing a desire for change and provide guidance in what that change will look like for each individual Participant with the understanding that such results will vary.
 PLSUTIY, if provided with all established and reported data by Participant, will direct set parameters (including, but not limited to, intake and output) to effect desired change.
 PLUSITY will provide an environment of support, community, trust, and comradery.
-PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY’s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
+PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY&apos;s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
         </Description>
      </Information>
      <Information>
@@ -170,3 +170,4 @@ By continuing to access or use our Service after any revisions become effective,
     )
 }
 export default HowTo
+

@@ -5,7 +5,6 @@ import { MainFooter } from '@modules/footer';
 import styled from 'styled-components';
 import useLogout from '@app/hooks/useLogout';
 import Loader from '@app/components/atoms/Loader';
-// import { CartProvider } from '@app/utils/provider';
 interface Props {
     children?: ReactNode;
 }

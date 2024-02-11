@@ -1,8 +1,8 @@
 import Image from "next/image"
 import styled from "styled-components"
 import { useContext } from "react"
-import { CartContext } from "@app/hooks/useCarts"
 import Link from "next/link"
+import { CartContext } from "@app/hooks/useCarts"
 const IconContainer = styled.div`
    display: inline-flex;
    gap: 10px;
@@ -34,7 +34,6 @@ export const CartIcon = ()=> {
   const numberOfCartItems = cartCtx.cartProducts && Array.isArray(cartCtx.cartProducts) && cartCtx.cartProducts.reduce((current, item)=> {
     return current + item.product_count
   }, 0)
-
 return (
     <IconContainer>
       <div className="relative">
@@ -45,9 +44,11 @@ return (
         width={32}
         height={32}
         />
+        { 
           <OvalContainer>
               <span>{numberOfCartItems}</span>
           </OvalContainer>
+        }
         </Link>
       </div>
       <div>

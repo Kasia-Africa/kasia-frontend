@@ -18,7 +18,6 @@ const cardWidth = styledMap('width', {
     default: '288.73px',
 })
 
-
 const CardWrapper = styled.div<CardProps>`
   border-radius: 0.115rem;
   flex-shrink: 0;

@@ -62,7 +62,7 @@ const DeliveryInfo: React.FC = ()=> {
         <Information>
             <Highlight>Kasia terms and conditions</Highlight>
             <Description>Please read these Terms and Conditions (&quot;Terms&quot;, &quot;Terms and Conditions&quot;) carefully before using the application or https://www.plusity.com website (the &quot;Service&quot;)
-             operated by PLUSITY (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;).</Description>
+             operated by PLUSITY (&quot;us&quot; , &quot; we&quot; , or &quot; our&quot; ).</Description>
         </Information>
         <Information>
             <Highlight>Content</Highlight>
@@ -127,7 +127,7 @@ PLUSITY will assist Participant in establishing and analyzing lab test results. 
 PLUSITY will assist Participant in establishing a desire for change and provide guidance in what that change will look like for each individual Participant with the understanding that such results will vary.
 PLSUTIY, if provided with all established and reported data by Participant, will direct set parameters (including, but not limited to, intake and output) to effect desired change.
 PLUSITY will provide an environment of support, community, trust, and comradery.
-PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY’s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
+PLUSITY utilizes insights from behavioral sciences, and consults with behavioral scientists, to help our clients overcome obstacles and create sustainable change. Nothing in this Agreement or PLUSITY&apos;s program or the Service, however, constitutes medical or scientific advice; nor should anything in this Agreement, the Service, or the PLUSITY program ever be construed as such.
         </Description>
      </Information>
      <Information>
@@ -170,3 +170,4 @@ By continuing to access or use our Service after any revisions become effective,
     )
 }
 export default DeliveryInfo
+
