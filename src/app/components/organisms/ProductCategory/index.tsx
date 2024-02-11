@@ -7,7 +7,6 @@ import { RecAndDot } from '@app/components/atoms/rectangleAndDot';
 import { useProductCategory } from '@app/hooks/useProductCategory';
 import { ProductCategoryData} from '@app/types';
 import Loader from '@app/components/atoms/Loader';
-import { Spacer } from '@app/components/atoms/Spacer';
 import { PageWrapper } from '@app/components/ui/PageElement';
 import Arrows from '@app/components/atoms/Arrows';
 import Link from 'next/link';

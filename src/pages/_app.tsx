@@ -66,7 +66,7 @@ function MainApp(props: any) {
 
 // @ts-ignore
 MainApp.getInitialProps = async (appContext: any) => {
-    const { ctx } = appContext;
+    // const { ctx } = appContext;
     const appProps = await App.getInitialProps(appContext);
     // let userAgent;
     // // @ts-ignore

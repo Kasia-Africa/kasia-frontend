@@ -1,7 +1,6 @@
 import { TProductTesting } from "@app/constant/details";
 import Image from "next/image";
 import { format_price } from "@app/utils/helper";
-import Link from "next/link";
 import Quantity from "@app/components/atoms/Quantity";
 import styled from "styled-components";
 import { CartGrid } from "../cart_items";
