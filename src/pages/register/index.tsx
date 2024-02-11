@@ -4,7 +4,7 @@ import Script from "next/script";
 import { AuthLayout } from '@app/layouts';
 import SignUpPage from '@components/templates/SignUp';
 
-function Signup(): JSX.Element {
+function SignUp(): JSX.Element {
     return (
         <>
             <Head>
@@ -17,6 +17,6 @@ function Signup(): JSX.Element {
         </>
     );
 }
-Signup.Layout = AuthLayout;
+SignUp.Layout = AuthLayout;
 
-export default Signup;
+export default SignUp;
