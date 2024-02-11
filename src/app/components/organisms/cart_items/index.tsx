@@ -194,9 +194,9 @@ const notify = () => toast('product Removed',  {
                 <Separator className='relative mb-14 m-auto w-[1200px]'/>
                 <div className=''>
                   {
-                    cartProducts && cartProducts.map((item)=> {
-                      return <div className='pb-7 box-border'>
-                        <CartContent item= {item} key={item.id} />
+                    cartProducts && cartProducts.map((item, i)=> {
+                      return <div className='pb-7 box-border' key={i}>
+                        <CartContent item= {item}/>
                         <CartRemoveAndLikeContainer >
                         <Image 
                         src={"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26' fill='none'%3E%3Cpath fill='%23EB5757' fill-rule='evenodd' d='m13.438.4 1.374 1.4h4.813v2.8H.375V1.8h4.813L6.563.4h6.875ZM1.75 22.8c0 1.54 1.237 2.8 2.75 2.8h11c1.512 0 2.75-1.26 2.75-2.8V6H1.75v16.8Zm2.75-14h11v14h-11v-14Z' clip-rule='evenodd'/%3E%3C/svg%3E"}

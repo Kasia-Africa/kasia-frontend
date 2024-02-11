@@ -184,7 +184,7 @@ export interface cartDataType {
 }
 function ProductsDetails ({productsInformation, cartDataCat}: {productsInformation: TProductResponse[], cartDataCat: TProductTesting}): JSX.Element {
    const {success} = useNotify()
-   const {handleAddProductToCart, cartProducts, cartTotalQty} = useCart()
+   const {handleAddProductToCart, cartProducts} = useCart()
    const [isProductInCart, setIsProductInCart] = useState(false)
    const [cartProduct, setCartProduct]= useState<TProductTesting>({
       id: cartDataCat.id,
@@ -201,7 +201,6 @@ const router = useRouter()
       if(product.product_count > 0) {
          handleAddProductToCart(product)
          success("product added to cart")
-         // notify()
       }
    }
    useEffect(()=> {
@@ -212,7 +211,7 @@ const router = useRouter()
             setIsProductInCart(true)
          }
       }
-   }, [cartProducts])
+   }, [cartProducts, cartDataCat.id])
    const pathname = usePathname()
    const handleQtyIncrease = useCallback(()=> {
       if(cartProduct.product_count === 20) {

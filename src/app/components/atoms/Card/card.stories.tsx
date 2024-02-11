@@ -1,4 +1,3 @@
-// import React from 'react';
 import AuthCard, {CardProps} from '.';
 export default {
     title: 'Atoms/AuthCard',
