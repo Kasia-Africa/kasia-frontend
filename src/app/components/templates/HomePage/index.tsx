@@ -4,7 +4,7 @@ import {HomeCategoryProducts } from '@app/components/organisms/HomeCategoryProdu
 import { ProductCategory } from '@app/components/organisms/ProductCategory';
 import { ShoppingHeaderImage } from '@app/components/organisms/shop-image';
 import { HomeCategoryProductsData, ProductCategoryData } from '@app/types';
-import { PageWrapper } from '@app/components/ui/PageElement';
+import Loader from '@app/components/atoms/Loader';
 
 
 const HomeContainer = styled.div`
@@ -16,15 +16,22 @@ const HomeContainer = styled.div`
     height: 2300px;
 `
 const HomePage =  ({ productCategories, categoryProducts } : { productCategories: ProductCategoryData, categoryProducts : HomeCategoryProductsData }) => {
-    return (
-        <>
-        <ShoppingHeaderImage/>
-        <HomeContainer>
-            { productCategories && <ProductCategory initialProductCategories={productCategories}/>}
-            {categoryProducts.data.length > 0 && <HomeCategoryProducts initialCategoryProducts={categoryProducts}/>}
-        </HomeContainer>
-        </>         
-    );
+    let renderedContent;
+    try {
+        renderedContent = (
+            <>
+                <ShoppingHeaderImage />
+                <HomeContainer>
+                    {productCategories && <ProductCategory initialProductCategories={productCategories} />}
+                    {categoryProducts.data.length > 0  && <HomeCategoryProducts initialCategoryProducts={categoryProducts} />}
+                </HomeContainer>
+            </>
+        );
+    } catch (error:any) {
+        console.error('Error occurred in HomePage:', error);
+        renderedContent = <Loader color='green' height={300}/>
+    }
+    return renderedContent;
 };
 
 
