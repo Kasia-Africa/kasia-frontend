@@ -68,7 +68,7 @@ export const ProfilePicture = ()=> {
 
     return (
       <ProfilePictureContainer ref={profileMenuDropDown}>
-        <Link href={`profile/me`} title='My Profile'>
+        <Link href={`/profile/me`} title='My Profile'>
           <Image
             src = "/profileme.jpg"
               alt= ""
