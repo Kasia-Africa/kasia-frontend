@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import useNotify from "./useNotify";
 interface cartContextType {
     cartTotalQty: number;
+    totalProductCount: number;
     cartProducts: TProductTesting[] | null;
     handleAddProductToCart: (product: TProductTesting)=> void;
     handleRemoveProduct: (product:TProductTesting )=> void
@@ -13,6 +14,7 @@ interface Props{
 export const CartContext = createContext<cartContextType>(
     {
     cartTotalQty: 0,
+    totalProductCount: 0,
     cartProducts: [],
      handleAddProductToCart: ()=> {},
      handleRemoveProduct: ()=> {}
@@ -22,6 +24,7 @@ export const CartContext = createContext<cartContextType>(
 export const CartContextProvider = (props: Props)=> {
     const {success} = useNotify()
     const [cartTotalQty, setCartTotalQty] = useState(0)
+    const [totalProductCount, setTotalProductCount] = useState(0)
     const [cartProducts, setCartProducts] = useState<TProductTesting[]>([])
     const handleAddProductToCart = useCallback((product:TProductTesting)=> {
         setCartProducts((prevProducts) => {
@@ -53,7 +56,25 @@ export const CartContextProvider = (props: Props)=> {
           }
       }, [])
 
-    const value= {cartTotalQty, cartProducts, handleAddProductToCart, handleRemoveProduct}
+      useEffect(()=> {
+        const getTotal = ()=> {
+            if(cartProducts) {
+                const {totalCartProduct, totalProductCount} = cartProducts.reduce((accumulator, item)=> {
+                    const SubTotal = item.price * item.product_count
+                    accumulator.totalCartProduct += SubTotal
+                    accumulator.totalProductCount += item.product_count
+                    return accumulator;
+                }, 
+              {  totalCartProduct: 0,
+                totalProductCount: 0}
+                )
+                setCartTotalQty(totalCartProduct)
+                setTotalProductCount(totalProductCount)
+            }
+        }
+        getTotal()
+      }, [cartProducts])
+    const value= {cartTotalQty, totalProductCount, cartProducts, handleAddProductToCart, handleRemoveProduct}
     return <CartContext.Provider value={value} {...props}/>
 }
 export const useCart = ()=> {
