@@ -44,7 +44,7 @@ text-align: center;
 justify-content: center;
 `;
 
-export default function SignUpPage() {
+export default function RegisterPage () {
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const togglePasswordVisibility = () => {
     setPasswordVisibility((prev)=> !prev)
