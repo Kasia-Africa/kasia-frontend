@@ -144,3 +144,15 @@ export interface CategoryProductData {
     message: string,
     products: TProduct[]
 }
+
+export interface TFeaturedBanner {
+    url: string,
+    link: string,
+    target: string,
+}
+
+export interface TFeaturedBannerData {
+    success: boolean,
+    message: string,
+    banners: TFeaturedBanner[]
+}
