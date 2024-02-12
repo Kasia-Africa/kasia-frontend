@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Script from "next/script";
 import { AuthLayout } from '@app/layouts';
-import SignUpPage from '@components/templates/SignUp';
+import SignUpPage from '../../app/components/templates/SignUp';
 
 function Register(): JSX.Element {
     return (
