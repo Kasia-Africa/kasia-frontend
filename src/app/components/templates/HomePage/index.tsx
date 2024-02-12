@@ -20,7 +20,7 @@ const HomePage =  ({ productCategories, categoryProducts } : { productCategories
         <ShoppingHeaderImage/>
         <HomeContainer>
             { productCategories && <ProductCategory initialProductCategories={productCategories}/>}
-            {categoryProducts?.data.length > 0 && <HomeCategoryProducts initialCategoryProducts={categoryProducts}/>}
+            {categoryProducts.data.length > 0 && <HomeCategoryProducts initialCategoryProducts={categoryProducts}/>}
         </HomeContainer>
         </>         
     );
