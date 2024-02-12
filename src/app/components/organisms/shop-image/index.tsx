@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { useFeaturedBanner } from '@app/hooks/useFeaturedBanner';
 import Loader from '@app/components/atoms/Loader';
 import Link from 'next/link';
+import { TFeaturedBannerData } from '@app/types';
 
 const BannerImageContainer = styled.div`
 position: relative;
@@ -83,9 +84,9 @@ const Arrows = (props : { className : string, onClick ?: any, isNext?: boolean }
        /> 
     )
 }
-export const ShoppingHeaderImage = ()=> {
+export const ShoppingHeaderImage = ({ initialFeaturedBanners } : { initialFeaturedBanners : TFeaturedBannerData })=> {
 
-    const { bannerDetails: featuredImages, loading } = useFeaturedBanner();
+    const { featuredBanners: banners, loading } = useFeaturedBanner(initialFeaturedBanners);
 
     const slickSettings = {
         dots: true,
@@ -102,13 +103,13 @@ export const ShoppingHeaderImage = ()=> {
            <BannerImageContainer>
             {loading ? <Loader /> : 
                 <Slider {...slickSettings}>
-                { featuredImages.length > 0 && ( featuredImages.map((featuredImage, i)=> {
-                    return (<Link href={featuredImage.link}  key={i}>
+                { banners.length > 0 && ( banners.map((banner, i)=> {
+                    return (<Link href={banner.link}  key={i}>
                             <Images
-                            src={featuredImage.url}
+                            src={banner.url}
                             width={1223}
                             height={275}
-                            alt={featuredImage.url}
+                            alt={banner.url}
                            
                             className='w-full'
                             />
