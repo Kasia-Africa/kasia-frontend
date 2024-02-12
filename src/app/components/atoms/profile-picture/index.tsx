@@ -68,15 +68,26 @@ export const ProfilePicture = ()=> {
 
     return (
       <ProfilePictureContainer ref={profileMenuDropDown}>
-        <Link href={`/profile/me`} title='My Profile'>
-          <Image
-            src = "/profileme.jpg"
-              alt= ""
-              height = {40}
-              width = {40}
-              className='rounded-full'
-          />
-        </Link>
+        {
+            isAuthenticated() ? 
+              <Link href={`/profile/me`} title='My Profile'>
+                <Image
+                  src = "/profileme.jpg"
+                    alt= ""
+                    height = {40}
+                    width = {40}
+                    className='rounded-full'
+                />
+              </Link>
+        :
+            <Image
+              src = "/profileme.jpg"
+                alt= ""
+                height = {40}
+                width = {40}
+                className='rounded-full'
+            />
+        }
        
         <DropDownIcon 
         onClick={handleDropDown}
