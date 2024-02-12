@@ -43,11 +43,9 @@ const ProductCategory = styled.div`
   }
 
   &.slick-next {
-    right: 0px;
+    right: -20px;
   }
-  &.slick-prev {
-    left: 0px;
-  }
+  
   &.slick-prev,
   &.slick-next {
     &::before {
