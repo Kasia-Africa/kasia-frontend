@@ -44,7 +44,7 @@ text-align: center;
 justify-content: center;
 `;
 
-const SignUpPage = () =>  {
+export default function SignUpPage() {
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const togglePasswordVisibility = () => {
     setPasswordVisibility((prev)=> !prev)
@@ -172,5 +172,3 @@ const SignUpPage = () =>  {
     </Container>
   );
 }
-
-export default SignUpPage

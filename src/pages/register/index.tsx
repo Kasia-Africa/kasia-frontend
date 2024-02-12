@@ -10,7 +10,7 @@ function Register(): JSX.Element {
             <Head>
                 <title>Register | Plusity</title>
             </Head>
-            <SignUpPage />
+            <SignUpPage/>
              <Script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZGKX2eI8YWey2xWEct0hXqZot0cWc6I&libraries=places"
             />
