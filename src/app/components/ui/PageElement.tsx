@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export const PageWrapper = styled.div.attrs(({className})=>({className: `${className || ''}`}))<{ bg?: string, isFullWidth?: boolean}>`
@@ -7,18 +8,7 @@ export const PageWrapper = styled.div.attrs(({className})=>({className: `${class
   width: 100%;
   background-color:  ${({ bg }) => bg || '' };
 `;
-const ViewAllStyle = styled.div`
-color: #000;
-font-family: Poppins;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: uppercase;
-text-align: right;
-position: relative;
-bottom:70px;
-`
+
 export const ImageContainer = styled.div`
 width: 119.261px;
 height: 84.783px;
@@ -27,11 +17,7 @@ display: flex;
 justify-content: center;
 margin: auto auto;
 `;
-export const ViewAllLink = ()=> {
-  return <ViewAllStyle>
-        View All
-  </ViewAllStyle>
-}
+
 export const FooterListWrapper = styled.div`
 line-height: 1.0;
 padding-right: 20px;

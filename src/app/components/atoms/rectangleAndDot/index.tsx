@@ -4,10 +4,10 @@ import styled from "styled-components"
 const RectangleAndDot = styled.div`
  display: flex;
  justify-content: center;
- position: absolute;
+ position: relative;
  left: 0;
  right: 0;
-margin-top: 68px; 
+ top: 10px;
 `
 export const RecAndDot = ()=> {
     return( 

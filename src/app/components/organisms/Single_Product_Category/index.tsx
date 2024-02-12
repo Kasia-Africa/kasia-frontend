@@ -12,15 +12,9 @@ import { format_price } from "@app/utils/helper";
 import { usePathname } from "next/navigation";
 import React from "react";
 import styled from "styled-components"
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  top: 70px;
-  margin: 0 auto;
-  background: #F2F2F2;
-  margin-bottom: 20px;
-`
+import { PageWrapper } from '@app/components/ui/PageElement';
+import { Title } from '@app/components/ui/auth.styles';
+
 const LikeButtonContainer = styled.div`
 position: absolute;
 top: 23px;
@@ -32,23 +26,28 @@ height: 107px;
 margin: 0 auto;
 `
 const AllCategory = styled.div`
-display: flex;
- justify-content: center;
-//   margin: 0 auto;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  width: 100%;
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+margin-bottom: 40px;
+width: 100%;
+gap: 16px;
 `
 const Header = styled.div`
 display: flex;
 flex-direction: column;
 width: 100%;
+
+  .featured-banner {
+    width: 100%;
+  }
 `
+
 const HeaderTitle = styled.div`
    display: flex;
    margin: auto auto;
    font-size: 22px;
 `;
+
 const RecAndDotContainer = styled.div`
   position: relative;
   top: 10px;
@@ -62,30 +61,27 @@ export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: 
         return (
           <div key={index}>
             {pathname === `/products/categories/${category.slug}` && (
-              <Container>
+              <PageWrapper className='mt-16 mb-16'>
                 <Header>
-                  <HeaderTitle>
-                    ALL CATEGORIES {'>'}  <span className="font-extrabold ml-2">{category.name}</span>
-                  </HeaderTitle>
-                  <RecAndDotContainer>
-                    <RecAndDot/>
-                  </RecAndDotContainer>
+                  <Title>
+                    ALL CATEGORIES {'>'}  <span className="font-extrabold ml-2 uppercase">{category.name}</span>
+                  </Title>
+                  <RecAndDot />
                   <Image
                     src='/fruits.svg'
                     width={1220}
                     height={275}
                     alt=''
-                    className='mx-auto mt-9 mb-9'
+                    className='mt-9 mb-9 featured-banner'
                   />
                 </Header>
-                <div className="w-[1200px] mx-auto">
             <AllCategory>
          {
                     category.data?.map((product: any, i: any)=> {
                       return <Link key={i} href={`/products/${product.link}`} className='relative'>
                           <ShopCard
                           color="white"
-                          className='flex flex-col justify-center items-center cursor-pointer gap-1 ml-4 mb-4'
+                          className='flex flex-col justify-center items-center cursor-pointer mb-4'
                           width='shop' height='shop'
                         >
                           <LikeButtonContainer>
@@ -109,8 +105,7 @@ export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: 
                     })
                   }
                   </AllCategory>
-        </div>
-              </Container>
+              </PageWrapper>
             )}
           </div>
         );

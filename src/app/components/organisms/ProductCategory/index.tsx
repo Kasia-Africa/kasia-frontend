@@ -10,6 +10,7 @@ import Loader from '@app/components/atoms/Loader';
 import { PageWrapper } from '@app/components/ui/PageElement';
 import Arrows from '@app/components/atoms/Arrows';
 import Link from 'next/link';
+import { Spacer } from '@app/components/atoms/Spacer';
 
 
 const Title = styled.h1`
@@ -23,8 +24,8 @@ const Title = styled.h1`
    display: flex;
    margin: 0 auto;
    font-size: 22px;
- margin-top: 27px;
- margin-bottom: 50px;
+  margin-top: 27px;
+  margin-bottom: 0;
 `
 const ShopCategoryContainer = styled.div`
   display: flex;
@@ -54,7 +55,7 @@ const SliderCategoryContainer = styled.div`
   }
 
   .slick-dots {
-    bottom: -70px;
+    bottom: -50px;
 
     li {
       height: auto;
@@ -122,6 +123,7 @@ export const ProductCategory = ({ initialProductCategories } : { initialProductC
         <ShopCategoryContainer>
             <Title>Shop By Category</Title>
             <RecAndDot/>
+            <Spacer height={40} />
             <PageWrapper>
             { loading && <Loader color='green' /> } 
             <SliderCategoryContainer>

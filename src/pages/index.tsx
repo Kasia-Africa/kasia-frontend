@@ -14,15 +14,15 @@ import HomePage from '@app/components/templates/HomePage';
 function App({ productCategoryData, homeCategoryProductsData, featuredBannersData } : { productCategoryData: ProductCategoryData, homeCategoryProductsData : any, featuredBannersData : TFeaturedBannerData }): JSX.Element {
 >>>>>>> 12f65f6 (refactor home page banner)
     return (
-        <>
+        <BaseLayout isFullHeight>
             <Head>
                 <title>Home - Welcome to Plusity</title>
             </Head>
             <HomePage productCategories={productCategoryData} categoryProducts={homeCategoryProductsData} featuredBanners={featuredBannersData}  />
-        </>
+        </BaseLayout>
     );
 }
-App.Layout = BaseLayout;
+// App.Layout = BaseLayout;
 
 export const getStaticProps = async () => {
     try {

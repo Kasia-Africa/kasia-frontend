@@ -9,10 +9,7 @@ import { HomeCategoryProductsData, ProductCategoryData, TFeaturedBannerData } fr
 const HomeContainer = styled.div`
     width: 100%;
     margin: 0 auto;
-    position: relative;
-    top: 0;
     padding: 0;
-    height: 2300px;
 `
 const HomePage =  ({ productCategories, categoryProducts, featuredBanners } : { productCategories: ProductCategoryData, categoryProducts : HomeCategoryProductsData, featuredBanners : TFeaturedBannerData }) => {
     return (

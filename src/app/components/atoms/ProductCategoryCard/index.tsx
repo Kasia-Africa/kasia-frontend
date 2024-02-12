@@ -23,8 +23,9 @@ const CardWrapper = styled.div<CardProps>`
   flex-shrink: 0;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.07);
   // max-width: ${cardWidth};
-  padding: 24px 38px 7px;
+  padding: 25px;
   display: flex !important;
+  height: 100%;
   ${({ color }) => color && `background-color: ${color};`}
 `;
 

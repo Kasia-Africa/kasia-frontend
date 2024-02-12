@@ -7,13 +7,14 @@ import useLogout from '@app/hooks/useLogout';
 import Loader from '@app/components/atoms/Loader';
 interface Props {
     children?: ReactNode;
+    isFullHeight?: boolean;
 }
 
-const BasePageWrapper= styled.section`
+const BasePageWrapper= styled.section<{ isFullHeight?: boolean }>`
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  height: 255px;
+  height: ${({ isFullHeight }) => isFullHeight ? '255px;' : 'auto;'}
   background-color: ${({ theme }) => theme.color.darkgreen};
   position: relative;
 `;
@@ -21,7 +22,7 @@ const BaseBackground = styled.div`
 background-color: #F2F2F2;
 `;
 function BaseLayout(props: Props): JSX.Element {
-    const { children } = props;
+    const { children, isFullHeight } = props;
     const [isLogout, setIsLogout] = useState(false)
     const logout = useLogout()
 
@@ -35,13 +36,14 @@ function BaseLayout(props: Props): JSX.Element {
             }
         }
         isLogout && performLogout()
-    }, [logout, isLogout])
+    }, [logout, isLogout]);
+
     return isLogout ?  (
         <Loader height={500} color='red'/>
     ): (
     <>
        {<PageWrapper bg ="#F2F2F2" isFullWidth>
-            <BasePageWrapper>
+            <BasePageWrapper isFullHeight={isFullHeight}>
         <PageWrapper className='sticky'>
                     <MainHeader/>
         </PageWrapper>
@@ -58,6 +60,7 @@ function BaseLayout(props: Props): JSX.Element {
 
 BaseLayout.defaultProps = {
     children: '',
+    isFullHeight: false
 };
 
 export default BaseLayout;
