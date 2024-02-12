@@ -88,15 +88,13 @@ const SliderCategoryContainer = styled.div`
 
   .slick-arrow {
     &.slick-prev {
-      left: -20px;
+      left: -20px !important;
     }
 
     &.slick-next {
-      right: 0px;
+      right: -20px !important;
     }
-    &.slick-prev {
-      left: 0px;
-    }
+    
     &.slick-prev,
     &.slick-next {
       &::before {
