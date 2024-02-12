@@ -4,7 +4,6 @@ export const PageWrapper = styled.div.attrs(({className})=>({className: `${class
   max-width: ${({ theme , isFullWidth}) => isFullWidth ? '100vw' : theme.width.containerWidth};
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
   width: 100%;
   background-color:  ${({ bg }) => bg || '' };
 `;
