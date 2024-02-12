@@ -42,16 +42,6 @@ width: 100%;
   }
 `
 
-const HeaderTitle = styled.div`
-   display: flex;
-   margin: auto auto;
-   font-size: 22px;
-`;
-
-const RecAndDotContainer = styled.div`
-  position: relative;
-  top: 10px;
-`
 export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: TProductResponse[]})=> {
   const pathname = usePathname()
    return (
