@@ -4,6 +4,9 @@ import { PageWrapper } from '@app/components/ui/PageElement';
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
+import { useFeaturedBanner } from '@app/hooks/useFeaturedBanner';
+import Loader from '@app/components/atoms/Loader';
+import Link from 'next/link';
 
 const BannerImageContainer = styled.div`
 position: relative;
@@ -13,7 +16,7 @@ top: -75px;
     .slick-slider {
         .arrow {
             position: absolute;
-            top: 50%;
+            top: calc(50% - 18px);
             z-index: 1;
             cursor: pointer;
 
@@ -55,6 +58,16 @@ top: -75px;
             }
         }
     }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.15);
+        color: #f1f1f1;
+        width: 100%;
+        opacity: 1;
+    }
 `;
 
 const Arrows = (props : { className : string, onClick ?: any, isNext?: boolean } ) => {
@@ -72,6 +85,8 @@ const Arrows = (props : { className : string, onClick ?: any, isNext?: boolean }
 }
 export const ShoppingHeaderImage = ()=> {
 
+    const { bannerDetails: featuredImages, loading } = useFeaturedBanner();
+
     const slickSettings = {
         dots: true,
         infinite: true,
@@ -80,39 +95,29 @@ export const ShoppingHeaderImage = ()=> {
         slidesToScroll: 1,
         nextArrow: <Arrows className='slick-next' isNext/>,
         prevArrow: <Arrows className='slick-prev' />
-      };
-
-    const featuredImages = [
-        {
-            title : 'Featured Image 1',
-            link : '#',
-        },
-        {
-            title : 'Featured Image 2',
-            link : '#',
-        },
-        {
-            title : 'Featured Image 3',
-            link : '#',
-        },
-    ];
+    };
 
     return (
         <PageWrapper>
            <BannerImageContainer>
-           <Slider {...slickSettings}>
-           { featuredImages.length > 0 && ( featuredImages.map((featuredImage, i)=> {
-            return <Images
-                 src='/banners/banner-1.png'
-                 width={1223}
-                 height={275}
-                 alt={featuredImage.title}
-                 key={i}
-                 className='w-full'
-                 />
-           }) )
+            {loading ? <Loader /> : 
+                <Slider {...slickSettings}>
+                { featuredImages.length > 0 && ( featuredImages.map((featuredImage, i)=> {
+                    return (<Link href={featuredImage.link}  key={i}>
+                            <Images
+                            src={featuredImage.url}
+                            width={1223}
+                            height={275}
+                            alt={featuredImage.url}
+                           
+                            className='w-full'
+                            />
+                            <div className='image-overlay'></div>
+                        </Link> )
+                }) )
+                }
+                </Slider>
         }
-            </Slider>
         </BannerImageContainer>   
         </PageWrapper>
        
