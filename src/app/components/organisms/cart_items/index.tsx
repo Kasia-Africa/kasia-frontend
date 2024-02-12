@@ -5,18 +5,17 @@ import { RecAndDot } from "@app/components/atoms/rectangleAndDot";
 import { ImageContainer, PageWrapper } from '@app/components/ui/PageElement';
 import { useCart } from '@app/hooks/useCarts';
 import Image from "next/image";
-import Link from 'next/link';
 import React from "react";
-import { MdArrowBack } from 'react-icons/md';
 import styled from "styled-components"
 import CartContent from '../cartContent';
 import { LikeButton } from '@app/components/atoms/like';
 import { format_price } from '@app/utils/helper';
 import { Button } from '@app/components/atoms/Buttons';
 import { TProductTesting } from '@app/constant/details';
-import toast from 'react-hot-toast';
 import ProductCategoryCard from '@app/components/atoms/ProductCategoryCard';
 import AddToCartButton from '@app/components/atoms/AddToCartButton';
+import useNotify from '@app/hooks/useNotify';
+import EmptyCart from '../empty_cart';
 
 const Container = styled.div`
  margin: 0 auto;
@@ -153,26 +152,16 @@ font-size: 14px;
 font-weight: 500;
 padding: 18.7px 14.11px 18.12px 24.75px;
 `;
-const notify = () => toast('product Removed',  {
-  duration: 4000,
-  position: 'top-center'});
  const CartItems = ()=> {
-  const {cartProducts, cartTotalQty, handleRemoveProduct} = useCart()
+  const {success} = useNotify()
+  const {cartProducts ,handleRemoveProduct, cartTotalQty, totalProductCount} = useCart()
   const removeProduct = (product: TProductTesting)=> {
-    notify()
     handleRemoveProduct(product)
+    success('Product Removed')
   }
   if(!cartProducts || cartProducts.length === 0) {
     return (
-    <div className='flex flex-col items-center justify-center mt-28'>
-            <div className='text-2xl '>Your cart is empty</div>
-            <div>
-              <Link href={'/'} className='text-green-500 flex items-center gap-1 mt-2'>
-                <MdArrowBack/>
-                  <span>Start Shopping</span>
-              </Link>
-            </div>
-    </div>
+          <EmptyCart/>
     )
   }
   return ( <Container>
@@ -217,7 +206,7 @@ const notify = () => toast('product Removed',  {
                   }
                 </div>
                   <CheckoutSection>
-                      <TotalItems>{cartProducts[0].product_count} Items</TotalItems>
+                      <TotalItems>{totalProductCount} Items</TotalItems>
                       <SubTotal>Subtotal: {format_price(cartTotalQty)}</SubTotal>
                       <Checkout>
                       <Button kind='secondary'
