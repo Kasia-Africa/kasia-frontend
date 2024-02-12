@@ -1,4 +1,5 @@
 import { Button } from '@app/components/atoms/Buttons';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -40,7 +41,7 @@ const handleLogoLink = () => {
     <header className={`flex flex-col justify-between pt-11 pb-24 capitalize overflow-x-hidden`}>
        <HeaderContent>
        <div>
-       <img 
+       <Image 
        src={logoSrc}
         alt={appName} 
         width={215}
