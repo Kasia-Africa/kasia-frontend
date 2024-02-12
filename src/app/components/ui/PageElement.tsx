@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 
 export const PageWrapper = styled.div.attrs(({className})=>({className: `${className || ''}`}))<{ bg?: string, isFullWidth?: boolean}>`
