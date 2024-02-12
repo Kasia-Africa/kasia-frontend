@@ -11,7 +11,7 @@ function App({ productCategoryData, homeCategoryProductsData } : { productCatego
             <Head>
                 <title>Home - Welcome to Plusity</title>
             </Head>
-            { productCategoryData && homeCategoryProductsData && <HomePage productCategories={productCategoryData} categoryProducts={homeCategoryProductsData} /> }
+            <HomePage productCategories={productCategoryData} categoryProducts={homeCategoryProductsData} />
         </>
     );
 }
