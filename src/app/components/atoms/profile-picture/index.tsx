@@ -80,6 +80,7 @@ export const ProfilePicture = ()=> {
                 />
               </Link>
         :
+          <Link href={`/login`} title='Login'>
             <Image
               src = "/profileme.jpg"
                 alt= ""
@@ -87,6 +88,7 @@ export const ProfilePicture = ()=> {
                 width = {40}
                 className='rounded-full'
             />
+          </Link>
         }
        
         <DropDownIcon 
