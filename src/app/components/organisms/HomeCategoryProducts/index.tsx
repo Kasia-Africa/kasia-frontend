@@ -7,7 +7,7 @@ import { RecAndDot } from '@app/components/atoms/rectangleAndDot'
 import { HomeCategoryProduct, HomeCategoryProductsData, TProduct} from '@app/types'
 import Loader from '@app/components/atoms/Loader';
 import { Spacer } from '@app/components/atoms/Spacer';
-import { ImageContainer, PageWrapper, ViewAllLink } from '@app/components/ui/PageElement';
+import { ImageContainer, PageWrapper } from '@app/components/ui/PageElement';
 import Arrows from '@app/components/atoms/Arrows';
 import { format_price } from "@app/utils/helper";
 import Slider from "react-slick";
@@ -57,6 +57,7 @@ const ProductCategory = styled.div`
 const Header = styled.div`
 display: flex;
 flex-direction: column;
+position: relative;
 `;
 const Title = styled.h1`
 color: #000;
@@ -67,16 +68,32 @@ font-weight: 400;
 line-height: normal;
 text-align: center;
 text-transform: uppercase;
+margin: 0;
 `;
 const ItemsContainer = styled.div`
-background: #F2F2F2;
-width: 1223px;
+width: 100%;
 margin: 0 auto;
-padding: 0 22.33px;
-display: flex;
-flex-direction: column;
-flex-shrink: 0;
-`
+padding: 22.33px;
+`;
+
+const ViewAllStyle = styled.a`
+font-size: 18px;
+font-weight: 400;
+line-height: normal;
+text-transform: uppercase;
+position: absolute;
+right: 0;
+top: calc(50% - 9px);
+`;
+
+const ViewAllLink = ({ url } : { url : string} )=> {
+  return (
+      <ViewAllStyle href={url}>
+          View All
+      </ViewAllStyle>
+  )
+}
+
 export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCategoryProducts : HomeCategoryProductsData, } ) => {
   const { categoryProducts: product_categories, loading } = useCategoryProducts(initialCategoryProducts);
   const slickSettings = {
@@ -89,57 +106,58 @@ export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCate
     prevArrow: <Arrows className='slick-prev' />
   };
   return (
-      <ItemsContainer>
-        { loading && <Loader color='green' /> } 
-          {product_categories && product_categories.data.map((category : HomeCategoryProduct, index : number) => {
-                return (
-                  <>
-                  <Header>
-                  <Title>{category.name}</Title>
-                    <RecAndDot/>
-                  </Header>
-                  <Spacer/>
-                    <Link href={`/products/categories/${category.slug}`}>
-                      <ViewAllLink/>
-                    </Link>
-                    <PageWrapper key={index}>
-                    <ProductCategory>
-                    <Slider {...slickSettings}>
-                      { category.data.map((product : TProduct , i : number)=> {
-                        return <Link key={i} href={`/products/${product.slug}`} title={product.title} className='product-title relative'>
-                          <ShopCard
-                        key={product.slug}
-                        color="white"
-                        className='flex flex-col justify-center items-center cursor-pointer gap-1'
-                        width='shop' height='shop'>
-                          <LikeButton/>
-                                <ImageContainer>
-                           <Image
-                          src={product.featured_image}
-                          alt={product.slug}
-                          width={189}
-                          height={127}
-                          />
-                            </ImageContainer>
-                            <Spacer height={17}/>
-                        <h2 className='font-bold text-[16px] text-[#393939]'>{product.title}</h2>
-                        <Spacer/>
-                          <span className='text-[#393939]'>{format_price(product.price)}</span>
+      <PageWrapper>
+        <ItemsContainer>
+          { loading && <Loader color='green' /> } 
+            {product_categories && product_categories.data.map((category : HomeCategoryProduct, index : number) => {
+                  return (
+                    <>
+                    <Header>
+                    <Title>{category.name}</Title>
+                      <RecAndDot/>
+                      <ViewAllLink url={`/products/categories/${category.slug}`} />
+                    </Header>
+                    <Spacer height={80}/>
+                      <PageWrapper key={index}>
+                      <ProductCategory>
+                      <Slider {...slickSettings}>
+                        { category.data.map((product : TProduct , i : number)=> {
+                          return <Link key={i} href={`/products/${product.slug}`} title={product.title} className='product-title relative'>
+                            <ShopCard
+                          key={product.slug}
+                          color="white"
+                          className='flex flex-col justify-center items-center cursor-pointer gap-1'
+                          width='shop' height='shop'>
+                            <LikeButton/>
+                                  <ImageContainer>
+                            <Image
+                            src={product.featured_image}
+                            alt={product.slug}
+                            width={189}
+                            height={127}
+                            />
+                              </ImageContainer>
+                              <Spacer height={17}/>
+                          <h2 className='font-bold text-[16px] text-[#393939]'>{product.title}</h2>
                           <Spacer/>
-                          <AddToCartButton>Add to cart</AddToCartButton>
-                          <Spacer/>
-                    </ShopCard>
-                        </Link>
-                      
+                            <span className='text-[#393939]'>{format_price(product.price)}</span>
+                            <Spacer/>
+                            <AddToCartButton>Add to cart</AddToCartButton>
+                            <Spacer/>
+                      </ShopCard>
+                          </Link>
+                        
 
-                    })
-                  }
-                  </Slider>
-                       </ProductCategory>
-                  </PageWrapper>
-                  </>
-                )
-          })}
-      </ItemsContainer>
+                      })
+                    }
+                    </Slider>
+                        </ProductCategory>
+                    </PageWrapper>
+                    <Spacer height={50}/>
+                    </>
+                  )
+            })}
+        </ItemsContainer>
+      </PageWrapper>
   )
 }
