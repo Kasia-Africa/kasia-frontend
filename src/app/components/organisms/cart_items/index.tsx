@@ -15,7 +15,7 @@ import { TProductTesting } from '@app/constant/details';
 import ProductCategoryCard from '@app/components/atoms/ProductCategoryCard';
 import AddToCartButton from '@app/components/atoms/AddToCartButton';
 import useNotify from '@app/hooks/useNotify';
-import EmptyCart from '../empty_cart';
+import EmptyCart from '@app/components/atoms/empty_cart';
 
 const Container = styled.div`
  margin: 0 auto;
@@ -153,11 +153,15 @@ font-weight: 500;
 padding: 18.7px 14.11px 18.12px 24.75px;
 `;
  const CartItems = ()=> {
-  const {success} = useNotify()
+  const {success, error} = useNotify()
   const {cartProducts ,handleRemoveProduct, cartTotalQty, totalProductCount} = useCart()
   const removeProduct = (product: TProductTesting)=> {
-    handleRemoveProduct(product)
-    success('Product Removed')
+    try {
+      handleRemoveProduct(product)
+      success('You have remove this product from your cart items')
+    } catch (e) {
+      e && error('Product not removed')
+    }
   }
   if(!cartProducts || cartProducts.length === 0) {
     return (
