@@ -81,6 +81,7 @@ export type AuthServiceType = {
 export type EmailServiceType = {
     contact_us: (data: TContactForm) => Promise<TContactData>;
 }
+
 export type ContactUsPayload = {
     recipient: string;
     subject: string;

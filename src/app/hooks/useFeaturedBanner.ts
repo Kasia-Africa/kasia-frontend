@@ -4,12 +4,16 @@ import getData from '@app/helpers/getData';
 import { TFeaturedBannerData } from '@app/types';
 
 
-export function useFeaturedBanner () {
+export function useFeaturedBanner (
+    banners ?: TFeaturedBannerData
+) {
     // @ts-ignore
-    const { data: bannerDetails, isValidating: loading } = useSWR<TFeaturedBannerData>('featured-banners', getData, {} );
+    const { data: featuredBanners, isValidating: loading } = useSWR<TFeaturedBannerData>('featured-banners', getData, {
+        initialData : banners
+    } );
 
     return {
-        bannerDetails: bannerDetails?.banners || [],
+        featuredBanners: featuredBanners?.banners || [],
         loading,
       };
 }
