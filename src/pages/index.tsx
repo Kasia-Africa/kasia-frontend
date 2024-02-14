@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { BaseLayout } from '@app/layouts';
 import getData from '@app/helpers/getData';
-import { ProductCategoryData, TFeaturedBannerData } from '@app/types';
+import { HomeCategoryProductsData, ProductCategoryData } from '@app/types';
 import HomePage from '@app/components/templates/HomePage';
 
 function App({ productCategoryData, homeCategoryProductsData, featuredBannersData } : { productCategoryData: ProductCategoryData, homeCategoryProductsData : any, featuredBannersData : TFeaturedBannerData }): JSX.Element {
