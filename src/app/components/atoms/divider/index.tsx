@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface DividerProps {
-}
 
 const StyledDivider = styled.div`
   display: flex;
@@ -23,7 +21,7 @@ const StyledDivider = styled.div`
   }
 `;
 
-const DividerAtom: React.FC<DividerProps> = () => {
+const DividerAtom: React.FC = () => {
   return (
     <StyledDivider>
       <div className='border-line'></div>

@@ -15,19 +15,9 @@ import { TProductTesting } from '@app/constant/details';
 import ProductCategoryCard from '@app/components/atoms/ProductCategoryCard';
 import AddToCartButton from '@app/components/atoms/AddToCartButton';
 import useNotify from '@app/hooks/useNotify';
+import { Title } from '@app/components/atoms/Title';
+import { ShoppingHeaderImage } from '../shop-image';
 import EmptyCart from '@app/components/atoms/empty_cart';
-
-const Container = styled.div`
- margin: 0 auto;
- display: flex;
- flex-direction: column;
-`
-const Title = styled.div`
-font-size: 22px;
-margin: 0 auto;
-margin-top: 27px;
-font-weight: 700;
-`
 
 export const CartGrid = styled.div`
   display: grid;
@@ -154,7 +144,8 @@ padding: 18.7px 14.11px 18.12px 24.75px;
 `;
  const CartItems = ()=> {
   const {success, error} = useNotify()
-  const {cartProducts ,handleRemoveProduct, cartTotalQty, totalProductCount} = useCart()
+  const { cartProducts , handleRemoveProduct, cartTotalQty, totalProductCount } = useCart()
+  
   const removeProduct = (product: TProductTesting)=> {
     try {
       handleRemoveProduct(product)
@@ -163,31 +154,30 @@ padding: 18.7px 14.11px 18.12px 24.75px;
       e && error('Product not removed')
     }
   }
-  if(!cartProducts || cartProducts.length === 0) {
-    return (
-          <EmptyCart/>
-    )
-  }
-  return ( <Container>
-            <Title>SHOPPING CART</Title>
-            <RecAndDot/>
-            <Image
-                    src='/fruits.svg'
-                    width={1220}
-                    height={275}
-                    alt=''
-                    className='mx-auto mt-28 mb-9'
-                  />
+
+  return ( <>
+      <PageWrapper>
+            <Spacer height={50} />
+            <div className='text-center flex justify-center flex-col'>
+              <Title>Shopping Cart</Title>
+              <RecAndDot/>
+            </div>
+            <Spacer height={50} />
+            <ShoppingHeaderImage />
+            <Spacer height={50} />
+            { cartProducts && cartProducts.length <= 0 && <EmptyCart /> }
+            { cartProducts && cartProducts.length > 0 && 
                   <PageWrapper>
-                      <CartGrid>
-                    <div>Product</div>
-                    <div>Quantity</div>
-                    <div>Total Price</div>
-                </CartGrid>
+                    <CartGrid>
+                      <div>Product</div>
+                      <div>Quantity</div>
+                      <div>Total Price</div>
+                    </CartGrid>
                 <Separator className='relative mb-14 m-auto w-[1200px]'/>
                 <div className=''>
+                
                   {
-                    cartProducts && cartProducts.map((item, i)=> {
+                     cartProducts.map((item, i)=> {
                       return <div className='pb-7 box-border' key={i}>
                         <CartContent item= {item}/>
                         <CartRemoveAndLikeContainer >
@@ -227,7 +217,8 @@ padding: 18.7px 14.11px 18.12px 24.75px;
                            <SavedTitle>SAVED PRODUCT</SavedTitle>
                            <Spacer/>
                            <SavedProduct>
-                              { cartProducts.map((saved, index)=> {
+      
+                              { cartProducts && cartProducts.map((saved, index)=> {
                                     return <>
                                         {
                                           index < 5 &&  <ProductCategoryCard
@@ -259,23 +250,26 @@ padding: 18.7px 14.11px 18.12px 24.75px;
                         </SavedProductContainer>
                         </PageWrapper>
                 </PageWrapper>
-                <GetYourGroceries>
-            <GetYourGroceriesText>
-               <h1 className="text-[#333] w-full">Get your <span className="text-[#FFF]">Groceries</span> delivered to your <span className="text-[#FFF]">doorstep</span>
-               </h1>
-            </GetYourGroceriesText>
-            <GroceriesButton>
-            all products on sale
-          </GroceriesButton>
-          <Image
-          src={'/freshfood.png'}
-          alt=""
-          width={287}
-          height={269}
-          className="ml-[893px] mr-[294px] absolute bottom-0"
-          />
-          </GetYourGroceries>
-    </Container>
+            }
+    </PageWrapper>
+    <Spacer height={50} />
+     <GetYourGroceries>
+     <GetYourGroceriesText>
+        <h1 className="text-[#333] w-full">Get your <span className="text-[#FFF]">Groceries</span> delivered to your <span className="text-[#FFF]">doorstep</span>
+        </h1>
+     </GetYourGroceriesText>
+     <GroceriesButton>
+     all products on sale
+   </GroceriesButton>
+   <Image
+   src={'/freshfood.png'}
+   alt=""
+   width={287}
+   height={269}
+   className="ml-[893px] mr-[294px] absolute bottom-0"
+   />
+   </GetYourGroceries>
+   </>
    )
   }
   

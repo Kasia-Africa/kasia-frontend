@@ -15,7 +15,6 @@ import Link from 'next/link';
 const Footer = styled.footer`
     background: radial-gradient(88.48% 72.82% at 50% 75.83%, #344634 0%, #171717 100%);
     padding: 3rem 0;
-    margin-top: 70px;
 `;
 const FooterHeading = styled.h1`
 font-weight: 600;

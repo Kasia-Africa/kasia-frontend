@@ -18,7 +18,7 @@ const HomePage =  ({ productCategories, categoryProducts, featuredBanners } : { 
     try {
         renderedContent = (
             <>
-            { featuredBanners && <ShoppingHeaderImage initialFeaturedBanners={featuredBanners} /> }
+            { featuredBanners && <ShoppingHeaderImage initialFeaturedBanners={featuredBanners} isTop={true} /> }
         <HomeContainer>
             { productCategories && <ProductCategory initialProductCategories={productCategories}/>}
             { categoryProducts && <HomeCategoryProducts initialCategoryProducts={categoryProducts}/>}
