@@ -157,3 +157,17 @@ export interface TFeaturedBannerData {
     message: string,
     banners: TFeaturedBanner[]
 }
+export interface TSingleProductCategory {
+    id: number;
+    title: string;
+    slug: string;
+    color: string;
+    description: string;
+    featured_image: string;
+    products_count: number;
+}
+export interface SingleProductCategoryData {
+    success: boolean;
+    message: string;
+    product_categories: TSingleProductCategory[];
+}

@@ -16,11 +16,13 @@ import ProductCategoryCard from '@app/components/atoms/ProductCategoryCard';
 import AddToCartButton from '@app/components/atoms/AddToCartButton';
 import useNotify from '@app/hooks/useNotify';
 import EmptyCart from '@app/components/atoms/empty_cart';
+import { ShoppingHeaderImage } from '../shop-image';
+import { TFeaturedBannerData } from '@app/types';
 
 const Container = styled.div`
- margin: 0 auto;
- display: flex;
- flex-direction: column;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
 `
 const Title = styled.div`
 font-size: 22px;
@@ -30,31 +32,31 @@ font-weight: 700;
 `
 
 export const CartGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 2rem;
-  font-size: 0.75rem;
-  padding-bottom: 1rem;
-  align-items: center;
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+gap: 2rem;
+font-size: 0.75rem;
+padding-bottom: 1rem;
+align-items: center;
 
-  & > div {
-    &:first-child {
-      justify-self: start;
-    }
+& > div {
+&:first-child {
+justify-self: start;
+}
 
-    &:nth-child(2) {
-      justify-self: center;
-    }
+&:nth-child(2) {
+justify-self: center;
+}
 
-    &:last-child {
-      justify-self: end;
-    }
-  }
+&:last-child {
+justify-self: end;
+}
+}
 `;
 const CartRemoveAndLikeContainer = styled.div`
- position: relative;
- left: 70%;
- bottom:12px;
+position: relative;
+left: 70%;
+bottom:12px;
 `
 const CheckoutSection = styled.div`
 display: flex;
@@ -152,132 +154,152 @@ font-size: 14px;
 font-weight: 500;
 padding: 18.7px 14.11px 18.12px 24.75px;
 `;
- const CartItems = ()=> {
-  const {success, error} = useNotify()
-  const {cartProducts ,handleRemoveProduct, cartTotalQty, totalProductCount} = useCart()
-  const removeProduct = (product: TProductTesting)=> {
-    try {
-      handleRemoveProduct(product)
-      success('You have remove this product from your cart items')
-    } catch (e) {
-      e && error('Product not removed')
-    }
-  }
-  if(!cartProducts || cartProducts.length === 0) {
-    return (
-          <EmptyCart/>
-    )
-  }
-  return ( <Container>
-            <Title>SHOPPING CART</Title>
-            <RecAndDot/>
-            <Image
-                    src='/fruits.svg'
-                    width={1220}
-                    height={275}
-                    alt=''
-                    className='mx-auto mt-28 mb-9'
+const CartItems = ({EmptyCartBanners}: {EmptyCartBanners: TFeaturedBannerData})=> {
+const {success, error} = useNotify()
+const {cartProducts ,handleRemoveProduct, cartTotalQty, totalProductCount} = useCart()
+const removeProduct = (product: TProductTesting)=> {
+try {
+handleRemoveProduct(product)
+success('You have remove this product from your cart items')
+localStorage.removeItem('cartProduct')
+} catch (e) {
+e && error('Product not removed')
+}
+}
+if(!cartProducts || cartProducts.length === 0) {
+return (
+  <Container>
+  <Title>SHOPPING CART</Title>
+  <RecAndDot/>
+  <Image
+              src='/fruits.svg'
+              width={1220}
+              height={275}
+              alt=''
+              className='mx-auto mt-28 mb-9'
+            />
+      {/* <div className='mt-[182px]'><ShoppingHeaderImage initialFeaturedBanners={EmptyCartBanners}/></div> 
+      same here
+      */}
+    <EmptyCart/>
+  </Container> 
+)
+}
+return ( <Container>
+      <Title>SHOPPING CART</Title>
+      <RecAndDot/>
+      {/* <div className='mx-auto mt-28 mb-9'>
+        <ShoppingHeaderImage initialFeaturedBanners={EmptyCartBanners}/>
+        </div> */
+        // tried this but not working
+        }
+      <Image
+              src='/fruits.svg'
+              width={1220}
+              height={275}
+              alt=''
+              className='mx-auto mt-28 mb-9'
+            />
+            <PageWrapper>
+                <CartGrid>
+              <div>Product</div>
+              <div>Quantity</div>
+              <div>Total Price</div>
+          </CartGrid>
+          <Separator className='relative mb-14 m-auto w-[1200px]'/>
+          <div className=''>
+            {
+              cartProducts && cartProducts.map((item, i)=> {
+                return <div className='pb-7 box-border' key={i}>
+                  <CartContent item= {item}/>
+                  <CartRemoveAndLikeContainer >
+                  <Image 
+                  src={"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26' fill='none'%3E%3Cpath fill='%23EB5757' fill-rule='evenodd' d='m13.438.4 1.374 1.4h4.813v2.8H.375V1.8h4.813L6.563.4h6.875ZM1.75 22.8c0 1.54 1.237 2.8 2.75 2.8h11c1.512 0 2.75-1.26 2.75-2.8V6H1.75v16.8Zm2.75-14h11v14h-11v-14Z' clip-rule='evenodd'/%3E%3C/svg%3E"}
+                  alt=''
+                  width={20}
+                  height={26}
+                  className='relative left-24 cursor-pointer bottom-12'
+                  onClick={()=> removeProduct(item)}
                   />
-                  <PageWrapper>
-                      <CartGrid>
-                    <div>Product</div>
-                    <div>Quantity</div>
-                    <div>Total Price</div>
-                </CartGrid>
-                <Separator className='relative mb-14 m-auto w-[1200px]'/>
-                <div className=''>
-                  {
-                    cartProducts && cartProducts.map((item, i)=> {
-                      return <div className='pb-7 box-border' key={i}>
-                        <CartContent item= {item}/>
-                        <CartRemoveAndLikeContainer >
-                        <Image 
-                        src={"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26' fill='none'%3E%3Cpath fill='%23EB5757' fill-rule='evenodd' d='m13.438.4 1.374 1.4h4.813v2.8H.375V1.8h4.813L6.563.4h6.875ZM1.75 22.8c0 1.54 1.237 2.8 2.75 2.8h11c1.512 0 2.75-1.26 2.75-2.8V6H1.75v16.8Zm2.75-14h11v14h-11v-14Z' clip-rule='evenodd'/%3E%3C/svg%3E"}
-                        alt=''
-                        width={20}
-                        height={26}
-                        className='relative left-24 cursor-pointer bottom-12'
-                        onClick={()=> removeProduct(item)}
-                        />
-                        <div className='relative bottom-20'>
-                        <LikeButton/>
-                        </div>
-                            </CartRemoveAndLikeContainer>
-                       <Separator/>
+                  <div className='relative bottom-20'>
+                  <LikeButton/>
+                  </div>
+                      </CartRemoveAndLikeContainer>
+                  <Separator/>
 
-                       </div>
-                    })
-                  }
-                </div>
-                  <CheckoutSection>
-                      <TotalItems>{totalProductCount} Items</TotalItems>
-                      <SubTotal>Subtotal: {format_price(cartTotalQty)}</SubTotal>
-                      <Checkout>
-                      <Button kind='secondary'
-                                 type="submit" 
-                                 padding="xxs"
-                                 className="text-white w-[140px] uppercase shadow-sm" 
-                                 ><span className="text-[10px]">CHECK OUT</span>
-                      </Button>
-                      </Checkout>
-                     </CheckoutSection>
-                     <PageWrapper>
-                     <SavedProductContainer>
-                     <Spacer height={25}/>
-                           <SavedTitle>SAVED PRODUCT</SavedTitle>
-                           <Spacer/>
-                           <SavedProduct>
-                              { cartProducts.map((saved, index)=> {
-                                    return <>
-                                        {
-                                          index < 5 &&  <ProductCategoryCard
-                                          key={index}
-                                          color="white"
-                                          className='flex flex-col justify-center items-center cursor-pointer'
-                                          width='shop' height='shop'>
-                                            <LikeButton/>
-                                                  <ImageContainer>
-                                                  <Image
-                                            src={saved.featured_image}
-                                            alt={saved.title}
-                                            width={140}
-                                            height={140}
-                                            />
-                                                  </ImageContainer>
-                                          <span className='font-bold text-[16px] text-[#393939]'>{saved.title}</span>
-                                          <Spacer/>
-                                            <Price className='text-[#393939]'>{format_price(saved.price)}</Price>
-                                            <Spacer/>
-                                            <AddToCartButton>Add To Cart</AddToCartButton>
-                                            <Spacer/>
-                                      </ProductCategoryCard>
-                                        }
-                                    </>
-                                 })
-                              }
-                  </SavedProduct>
-                        </SavedProductContainer>
-                        </PageWrapper>
-                </PageWrapper>
-                <GetYourGroceries>
-            <GetYourGroceriesText>
-               <h1 className="text-[#333] w-full">Get your <span className="text-[#FFF]">Groceries</span> delivered to your <span className="text-[#FFF]">doorstep</span>
-               </h1>
-            </GetYourGroceriesText>
-            <GroceriesButton>
-            all products on sale
-          </GroceriesButton>
-          <Image
-          src={'/freshfood.png'}
-          alt=""
-          width={287}
-          height={269}
-          className="ml-[893px] mr-[294px] absolute bottom-0"
-          />
-          </GetYourGroceries>
-    </Container>
-   )
-  }
-  
-             
+                  </div>
+              })
+            }
+          </div>
+            <CheckoutSection>
+                <TotalItems>{totalProductCount} Items</TotalItems>
+                <SubTotal>Subtotal: {format_price(cartTotalQty)}</SubTotal>
+                <Checkout>
+                <Button kind='secondary'
+                            type="submit" 
+                            padding="xxs"
+                            className="text-white w-[140px] uppercase shadow-sm" 
+                            ><span className="text-[10px]">CHECK OUT</span>
+                </Button>
+                </Checkout>
+                </CheckoutSection>
+                <PageWrapper>
+                <SavedProductContainer>
+                <Spacer height={25}/>
+                      <SavedTitle>SAVED PRODUCT</SavedTitle>
+                      <Spacer/>
+                      <SavedProduct>
+                        { cartProducts.map((saved, index)=> {
+                              return <>
+                                  {
+                                    index < 5 &&  <ProductCategoryCard
+                                    key={index}
+                                    color="white"
+                                    className='flex flex-col justify-center items-center cursor-pointer'
+                                    width='shop' height='shop'>
+                                      <LikeButton/>
+                                            <ImageContainer>
+                                            <Image
+                                      src={saved.featured_image}
+                                      alt={saved.title}
+                                      width={140}
+                                      height={140}
+                                      />
+                                            </ImageContainer>
+                                    <span className='font-bold text-[16px] text-[#393939]'>{saved.title}</span>
+                                    <Spacer/>
+                                      <Price className='text-[#393939]'>{format_price(saved.price)}</Price>
+                                      <Spacer/>
+                                      <AddToCartButton>Add To Cart</AddToCartButton>
+                                      <Spacer/>
+                                </ProductCategoryCard>
+                                  }
+                              </>
+                            })
+                        }
+            </SavedProduct>
+                  </SavedProductContainer>
+                  </PageWrapper>
+          </PageWrapper>
+          <GetYourGroceries>
+      <GetYourGroceriesText>
+          <h1 className="text-[#333] w-full">Get your <span className="text-[#FFF]">Groceries</span> delivered to your <span className="text-[#FFF]">doorstep</span>
+          </h1>
+      </GetYourGroceriesText>
+      <GroceriesButton>
+      all products on sale
+    </GroceriesButton>
+    <Image
+    src={'/freshfood.png'}
+    alt=""
+    width={287}
+    height={269}
+    className="ml-[893px] mr-[294px] absolute bottom-0"
+    />
+    </GetYourGroceries>
+</Container>
+)
+}
+
+        
 export default CartItems;

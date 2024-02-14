@@ -101,7 +101,7 @@ export const ShoppingHeaderImage = ({ initialFeaturedBanners } : { initialFeatur
     return (
         <PageWrapper>
            <BannerImageContainer>
-            {loading ? <Loader /> : 
+            {loading ? <Loader color='green'/> : 
                 <Slider {...slickSettings}>
                 { banners.length > 0 && ( banners.map((banner, i)=> {
                     return (<Link href={banner.link}  key={i}>

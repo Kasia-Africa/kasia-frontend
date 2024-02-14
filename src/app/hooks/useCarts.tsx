@@ -37,11 +37,10 @@ export const CartContextProvider = (props: Props)=> {
    const handleRemoveProduct = useCallback((product: TProductTesting)=> {
       if(cartProducts) {
         const filteredProduct = cartProducts.filter((item)=> {
-            return item.id === product.id
+            return item.id !== product.id
         })
         setCartProducts(filteredProduct)
-        localStorage.removeItem('cartProduct')
-        success('product removed succesfully')
+        localStorage.setItem('cartProduct', JSON.stringify(filteredProduct));
       }
    }, [cartProducts, success])
      useEffect(()=> {

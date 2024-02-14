@@ -229,6 +229,7 @@ const router = useRouter()
          return {...prev, product_count: prev.product_count-1}
       })
    }, [cartProduct])
+   
    return (
       <>
          {

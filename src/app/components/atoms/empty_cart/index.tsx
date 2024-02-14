@@ -1,19 +1,36 @@
 "use client"
-import Link from "next/link";
-import { MdArrowBack } from "react-icons/md";
+import Image from "next/image";
+import styled from "styled-components";
 
-// I will build the cart ui soon;
+const EmptyCartContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+& p {
+    color: #8C8C8C;
+    font-size: 24px;
+}
+`
 const EmptyCart = () => {
     return (  
-        <div className='flex flex-col items-center justify-center mt-28'>
-            <div className='text-2xl '>Your cart is empty</div>
-            <div>
-              <Link href={'/'} className='text-green-500 flex items-center gap-1 mt-2'>
-                <MdArrowBack/>
-                  <span>Start Shopping</span>
-              </Link>
-            </div>
-    </div>
+            <EmptyCartContainer>
+            <Image
+            src={'/empty_cart.svg'}
+            alt="Empty cart"
+            height={525}
+            width={443}
+            className="mt-[86px]"
+            />
+            <p className="mt-[28px]">No Product Available !</p>
+            <Image
+            src={'/doorstep.svg'}
+            alt="doorstep"
+            height={269}
+            width={947}
+            className="mt-[150px]"
+            />
+            </EmptyCartContainer>
     );
 }
  

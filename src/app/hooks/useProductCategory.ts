@@ -1,7 +1,7 @@
 'use client'
 import useSWR from 'swr';
 import getData from '@app/helpers/getData';
-import { HomeCategoryProductsData, ProductCategoryData} from '@app/types';
+import { HomeCategoryProductsData, ProductCategoryData, SingleProductCategoryData} from '@app/types';
 
 
 export function useProductCategory(
@@ -32,3 +32,16 @@ export function useCategoryProducts(
       };
 }
 
+export function useSingleProductCategory(
+    single_products?: SingleProductCategoryData
+) {
+    // @ts-ignore
+    const { data: singleProducts, isValidating: loading } = useSWR<SingleProductCategoryData>('products/categories', getData, {
+        initialData: single_products
+    } );
+
+    return {
+        singleProducts: singleProducts?.product_categories || [],
+        loading,
+      };
+}
