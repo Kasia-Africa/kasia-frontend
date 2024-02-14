@@ -6,7 +6,6 @@ import { ShoppingHeaderImage } from '@app/components/organisms/shop-image';
 import { HomeCategoryProductsData, ProductCategoryData, TFeaturedBannerData } from '@app/types';
 import Loader from '@app/components/atoms/Loader';
 
-
 const HomeContainer = styled.div`
     width: 100%;
     margin: 0 auto;
