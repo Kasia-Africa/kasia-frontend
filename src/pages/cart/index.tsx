@@ -2,13 +2,16 @@ import Head from 'next/head'
 import CartItems from '@app/components/organisms/cart_items'
 import { BaseLayout } from '@app/layouts'
 
-function ShoppingCartPage() {
+function CartPage () {
     return <>
        <Head>
-        <title>Kasia | Cart</title>
+        <title>Kasia | Shopping Cart</title>
        </Head>
-       <CartItems/>
+       <BaseLayout bg="#ffffff">
+        <CartItems />
+       </BaseLayout>
+       
     </>
 }
-ShoppingCartPage.Layout = BaseLayout
-export default ShoppingCartPage;
+
+export default CartPage;

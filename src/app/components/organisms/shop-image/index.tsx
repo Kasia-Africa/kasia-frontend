@@ -9,10 +9,11 @@ import Loader from '@app/components/atoms/Loader';
 import Link from 'next/link';
 import { TFeaturedBannerData } from '@app/types';
 
-const BannerImageContainer = styled.div`
+const BannerImageContainer = styled.div<{ isTop ?: boolean }>`
 position: relative;
 width: 100%;
-top: -75px;
+top: ${({ isTop }) => isTop ? '-75px' : '0'};
+
 
     .slick-slider {
         .arrow {
@@ -84,7 +85,7 @@ const Arrows = (props : { className : string, onClick ?: any, isNext?: boolean }
        /> 
     )
 }
-export const ShoppingHeaderImage = ({ initialFeaturedBanners } : { initialFeaturedBanners : TFeaturedBannerData })=> {
+export const ShoppingHeaderImage = ({ initialFeaturedBanners, isTop } : { initialFeaturedBanners ?: TFeaturedBannerData, isTop ?: boolean })=> {
 
     const { featuredBanners: banners, loading } = useFeaturedBanner(initialFeaturedBanners);
 
@@ -100,9 +101,9 @@ export const ShoppingHeaderImage = ({ initialFeaturedBanners } : { initialFeatur
 
     return (
         <PageWrapper>
-           <BannerImageContainer>
-            {loading ? <Loader /> : 
-                <Slider {...slickSettings}>
+           <BannerImageContainer isTop={isTop}>
+            {loading && <Loader /> } 
+            {!loading &&   <Slider {...slickSettings}>
                 { banners.length > 0 && ( banners.map((banner, i)=> {
                     return (<Link href={banner.link}  key={i}>
                             <Images

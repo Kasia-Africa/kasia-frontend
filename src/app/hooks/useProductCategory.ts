@@ -31,3 +31,4 @@ export function useCategoryProducts(
         loading,
       };
 }
+

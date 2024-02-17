@@ -11,22 +11,9 @@ import { PageWrapper } from '@app/components/ui/PageElement';
 import Arrows from '@app/components/atoms/Arrows';
 import Link from 'next/link';
 import { Spacer } from '@app/components/atoms/Spacer';
+import { Title } from '@app/components/atoms/Title';
 
 
-const Title = styled.h1`
-  color: "#000000";
-  text-align: center;
-  font-size: 25px;
-  font-weight: 500;
-  letter-spacing: 4px;
-  margin: 0;
-  text-transform: uppercase;
-   display: flex;
-   margin: 0 auto;
-   font-size: 22px;
-  margin-top: 27px;
-  margin-bottom: 0;
-`
 const ShopCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;

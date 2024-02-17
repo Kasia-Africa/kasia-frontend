@@ -14,6 +14,7 @@ import Slider from "react-slick";
 import Image from 'next/image';
 import { LikeButton } from '@app/components/atoms/like';
 import ShopCard from '@app/components/atoms/ProductCategoryCard'
+import { Title } from '@app/components/atoms/Title';
 
 const ProductCategory = styled.div`
  width: 100%;
@@ -59,17 +60,7 @@ display: flex;
 flex-direction: column;
 position: relative;
 `;
-const Title = styled.h1`
-color: #000;
-font-family: Poppins;
-font-size: 28px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-align: center;
-text-transform: uppercase;
-margin: 0;
-`;
+
 const ItemsContainer = styled.div`
 width: 100%;
 margin: 0 auto;
@@ -111,7 +102,7 @@ export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCate
           { loading && <Loader color='green' /> } 
             {product_categories && product_categories.data.map((category : HomeCategoryProduct, index : number) => {
                   return (
-                    <>
+                    <div key={index}>
                     <Header>
                     <Title>{category.name}</Title>
                       <RecAndDot/>
@@ -154,7 +145,7 @@ export const HomeCategoryProducts = ({ initialCategoryProducts } : { initialCate
                         </ProductCategory>
                     </PageWrapper>
                     <Spacer height={50}/>
-                    </>
+                    </div>
                   )
             })}
         </ItemsContainer>

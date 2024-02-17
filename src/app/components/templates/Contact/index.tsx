@@ -11,17 +11,8 @@ import useContactForm from "@app/hooks/useContactForm";
 import ErrorMessage from '@app/components/atoms/ErrorMessage';
 import TextArea from "@app/components/atoms/TextArea";
 import Loader from '@app/components/atoms/Loader';
+import { Title } from '@app/components/atoms/Title';
 
-const Title =  styled.h1`
-    color: white;
-    font-weight: 500;
-    text-align: center;
-    font-size: 22px;
-    text-transform: uppercase;
-    position: relative;
-    bottom: 70px;
-    letter-spacing: 0.25px;
-`
 const Container = styled.div`
 margin: auto auto;
 max-width: 1008px;

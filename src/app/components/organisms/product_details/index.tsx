@@ -23,6 +23,8 @@ import { TProductTesting } from "@app/constant/details";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/router";
 import useNotify from "@app/hooks/useNotify";
+import { Title } from '@app/components/atoms/Title';
+
 const Container =  styled.div `
 display: flex;
 flex-direction: column;
@@ -109,17 +111,7 @@ display: flex;
  height: 260px;
  flex-shrink: 0;
 `;
-const Title = styled.div`
-color: #000;
-font-family: Poppins;
-font-size: 29px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 1.1px;
-margin-left: 34px;
 
-`;
 const NameAndDate = styled.div`
 color: #000;
 font-family: Poppins;

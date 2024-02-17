@@ -2,16 +2,8 @@
 import { Button } from '@app/components/atoms/Buttons'
 import React from 'react'
 import styled from 'styled-components'
-const Title =  styled.h1`
-    color: white;
-    font-weight: 800;
-    text-align: center;
-    font-size: 22px;
-    text-transform: uppercase;
-    position: relative;
-     bottom: 70px;
-    letter-spacing: 0.25px;
-`
+import { Title } from '@app/components/atoms/Title';
+
 const Container = styled.div`
 margin-top: -10px;
 // padding-left: 80px;

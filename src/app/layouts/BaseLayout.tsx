@@ -8,6 +8,7 @@ import Loader from '@app/components/atoms/Loader';
 interface Props {
     children?: ReactNode;
     isFullHeight?: boolean;
+    bg?: string | "#F2F2F2";
 }
 
 const BasePageWrapper= styled.section<{ isFullHeight?: boolean }>`
@@ -18,11 +19,11 @@ const BasePageWrapper= styled.section<{ isFullHeight?: boolean }>`
   background-color: ${({ theme }) => theme.color.darkgreen};
   position: relative;
 `;
-const BaseBackground = styled.div`
-background-color: #F2F2F2;
+const BaseBackground = styled.div<{ bg ?: string }>`
+background-color: ${({ bg }) => bg ? bg : "#F2F2F2"}
 `;
 function BaseLayout(props: Props): JSX.Element {
-    const { children, isFullHeight } = props;
+    const { children, isFullHeight, bg } = props;
     const [isLogout, setIsLogout] = useState(false)
     const logout = useLogout()
 
@@ -42,14 +43,14 @@ function BaseLayout(props: Props): JSX.Element {
         <Loader height={500} color='red'/>
     ): (
     <>
-       {<PageWrapper bg ="#F2F2F2" isFullWidth>
+       {<PageWrapper isFullWidth>
             <BasePageWrapper isFullHeight={isFullHeight}>
         <PageWrapper className='sticky'>
                     <MainHeader/>
         </PageWrapper>
         </BasePageWrapper>
             <PageWrapper className='w-full min-h-screen' isFullWidth>
-                <BaseBackground>{children}</BaseBackground>
+                <BaseBackground bg={bg}>{children}</BaseBackground>
             </PageWrapper>
         <MainFooter />
         </PageWrapper>
