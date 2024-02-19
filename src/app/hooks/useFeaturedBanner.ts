@@ -8,7 +8,8 @@ export function useFeaturedBanner (
     banners ?: TFeaturedBannerData
 ) {
     // @ts-ignore
-    const { data: featuredBanners, isValidating: loading } = useSWR<TFeaturedBannerData>('featured-banners', getData, {
+    const { data: featuredBanners, isValidating: loading } = useSWR<TFeaturedBannerData>('featured-banners', 
+    ()=> getData('featured-banners'), {
         initialData : banners
     } );
 

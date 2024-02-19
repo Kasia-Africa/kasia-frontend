@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import CartItems from '@app/components/organisms/cart_items'
+import CartItems from '@app/components/organisms/CartItems'
 import { BaseLayout } from '@app/layouts'
 import getData from '@app/helpers/getData'
 import { TFeaturedBannerData } from '@app/types'

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ProductsDetails from '@app/components/organisms/product_details'
+import ProductsDetails from '@app/components/organisms/ProductDetails'
 import { BaseLayout } from '@app/layouts'
 import { usePathname } from 'next/navigation'
 import {kasia } from '@app/constant/constant'

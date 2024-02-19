@@ -54,6 +54,7 @@ export const CartContextProvider = (props: Props)=> {
             }
           }
       }, [])
+      
 
       useEffect(()=> {
         const getTotal = ()=> {

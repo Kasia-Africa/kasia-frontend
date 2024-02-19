@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import InputAtom from '@app/components/atoms/Inputs';
 import { CartIcon} from '@app/components/atoms/cart_icon';
-import { ProfilePicture } from '@app/components/atoms/profile-picture';
+import { ProfilePicture } from '@app/components/atoms/ProfilePicture';
 import { NotificationIcon } from '@app/components/atoms/notification';
 import Link from 'next/link';
 import { PageWrapper } from '@app/components/ui/PageElement';

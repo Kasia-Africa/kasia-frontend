@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {HomeCategoryProducts } from '@app/components/organisms/HomeCategoryProducts';
 import { ProductCategory } from '@app/components/organisms/ProductCategory';
-import { ShoppingHeaderImage } from '@app/components/organisms/shop-image';
+import { ShoppingHeaderImage } from '@app/components/organisms/ShoppingHeaderImage';
 import { HomeCategoryProductsData, ProductCategoryData, TFeaturedBannerData } from '@app/types';
 import Loader from '@app/components/atoms/Loader';
 

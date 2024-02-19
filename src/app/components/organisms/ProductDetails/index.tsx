@@ -200,7 +200,7 @@ const router = useRouter()
    const addToCart = (product: TProductTesting)=> {
       if(product.product_count > 0) {
          handleAddProductToCart(product)
-         success("product added to cart")
+         success("product successfully added to cart")
       }
    }
    useEffect(()=> {

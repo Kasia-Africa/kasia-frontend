@@ -7,7 +7,7 @@ import { useCart } from '@app/hooks/useCarts';
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components"
-import CartContent from '../cartContent';
+import CartContent from '../../atoms/CartContent';
 import { LikeButton } from '@app/components/atoms/like';
 import { format_price } from '@app/utils/helper';
 import { Button } from '@app/components/atoms/Buttons';
@@ -15,8 +15,8 @@ import { TProductTesting } from '@app/constant/details';
 import ProductCategoryCard from '@app/components/atoms/ProductCategoryCard';
 import AddToCartButton from '@app/components/atoms/AddToCartButton';
 import useNotify from '@app/hooks/useNotify';
-import EmptyCart from '@app/components/atoms/empty_cart';
-import { ShoppingHeaderImage } from '../shop-image';
+import EmptyCart from '@app/components/atoms/EmptyCart';
+import { ShoppingHeaderImage } from '../ShoppingHeaderImage';
 import { TFeaturedBannerData } from '@app/types';
 
 const Container = styled.div`
@@ -171,16 +171,7 @@ return (
   <Container>
   <Title>SHOPPING CART</Title>
   <RecAndDot/>
-  <Image
-              src='/fruits.svg'
-              width={1220}
-              height={275}
-              alt=''
-              className='mx-auto mt-28 mb-9'
-            />
-      {/* <div className='mt-[182px]'><ShoppingHeaderImage initialFeaturedBanners={EmptyCartBanners}/></div> 
-      same here
-      */}
+      <div className='mt-[182px]'><ShoppingHeaderImage initialFeaturedBanners={EmptyCartBanners}/></div>      
     <EmptyCart/>
   </Container> 
 )
@@ -188,18 +179,9 @@ return (
 return ( <Container>
       <Title>SHOPPING CART</Title>
       <RecAndDot/>
-      {/* <div className='mx-auto mt-28 mb-9'>
+      <div className='mx-auto mt-28 mb-9'>
         <ShoppingHeaderImage initialFeaturedBanners={EmptyCartBanners}/>
-        </div> */
-        // tried this but not working
-        }
-      <Image
-              src='/fruits.svg'
-              width={1220}
-              height={275}
-              alt=''
-              className='mx-auto mt-28 mb-9'
-            />
+        </div> 
             <PageWrapper>
                 <CartGrid>
               <div>Product</div>

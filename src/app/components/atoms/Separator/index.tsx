@@ -7,5 +7,5 @@ interface SeparatorProps {
 export const Separator = styled.hr.attrs(({ className }) => ({
   className: `border-t w-full left-0 ${className || ''}`,
 }))<SeparatorProps>`
-  border-color: #979797; 
+  border-color: #D8D8D8; 
 `;

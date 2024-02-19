@@ -2,7 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { BaseLayout} from '@app/layouts';
-import { SingleProductCategory} from '@app/components/organisms/Single_Product_Category';
+import { SingleProductCategory} from '@app/components/organisms/SingleProductCategory';
 import getData from '@app/helpers/getData';
 import {SingleProductCategoryData } from '@app/types';
 function AllSingleProductsPage({getAllSingleProductCategory}: {getAllSingleProductCategory: SingleProductCategoryData}): JSX.Element{
