@@ -1,6 +1,5 @@
 import { TProductTesting } from "@app/constant/details";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import useNotify from "./useNotify";
 interface cartContextType {
     cartTotalQty: number;
     totalProductCount: number;
@@ -22,7 +21,6 @@ export const CartContext = createContext<cartContextType>(
     )
 
 export const CartContextProvider = (props: Props)=> {
-    const {success} = useNotify()
     const [cartTotalQty, setCartTotalQty] = useState(0)
     const [totalProductCount, setTotalProductCount] = useState(0)
     const [cartProducts, setCartProducts] = useState<TProductTesting[]>([])
@@ -42,7 +40,7 @@ export const CartContextProvider = (props: Props)=> {
         setCartProducts(filteredProduct)
         localStorage.setItem('cartProduct', JSON.stringify(filteredProduct));
       }
-   }, [cartProducts, success])
+   }, [cartProducts])
      useEffect(()=> {
         const storeCartItems = localStorage.getItem('cartProduct');
         if (storeCartItems) {

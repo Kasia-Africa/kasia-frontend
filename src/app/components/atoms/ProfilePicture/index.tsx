@@ -59,10 +59,10 @@ export const ProfilePicture = ()=> {
         setShowDropDownItems(false);
       }
     };
-    document.addEventListener('mousedown', handleClick);
+    document.addEventListener('mouseleave', handleClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('mouseleave', handleClick);
     };
   }, []);
 

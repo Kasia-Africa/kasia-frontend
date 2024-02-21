@@ -5,7 +5,7 @@ import { Spacer } from '@app/components/atoms/Spacer';
 import ShopCard from '@app/components/atoms/ProductCategoryCard'
 import { LikeButton } from "@app/components/atoms/like";
 import { RecAndDot } from "@app/components/atoms/rectangleAndDot";
-// import { TProductResponse } from "@app/constant/constant";
+import { TProductResponse } from "@app/constant/constant";
 import Image from "next/image";
 import Link from 'next/link';
 import { format_price } from "@app/utils/helper";
@@ -14,9 +14,6 @@ import React from "react";
 import styled from "styled-components"
 import { PageWrapper } from '@app/components/ui/PageElement';
 import { Title } from '@app/components/ui/auth.styles';
-import { CategoryProductData, SingleProductCategoryData } from '@app/types';
-import { useSingleProductCategory } from '@app/hooks/useProductCategory';
-import Loader from '@app/components/atoms/Loader';
 
 const LikeButtonContainer = styled.div`
 position: absolute;
@@ -45,21 +42,19 @@ width: 100%;
   }
 `
 
-export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: SingleProductCategoryData})=> {
+export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: TProductResponse[]})=> {
   const pathname = usePathname()
-  const {singleProducts: all_single_products, loading} = useSingleProductCategory(allSingleProducts)
    return (
     <>
-    {loading && <Loader color='green'/>}
     {
-      all_single_products.map((category, index)=> {
+      allSingleProducts.map((category, index)=> {
         return (
           <div key={index}>
             {pathname === `/products/categories/${category.slug}` && (
               <PageWrapper className='mt-16 mb-16'>
                 <Header>
                   <Title>
-                    ALL CATEGORIES {'>'}  <span className="font-extrabold ml-2 uppercase">{category.title}</span>
+                    ALL CATEGORIES {'>'}  <span className="font-extrabold ml-2 uppercase">{category.name}</span>
                   </Title>
                   <RecAndDot />
                   <Image
@@ -71,7 +66,9 @@ export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: 
                   />
                 </Header>
             <AllCategory>
-                   <Link href={`/products/${category.slug}`} className='relative'>
+         {
+                    category.data?.map((product: any, i: any)=> {
+                      return <Link key={i} href={`/products/${product.link}`} className='relative'>
                           <ShopCard
                           color="white"
                           className='flex flex-col justify-center items-center cursor-pointer mb-4'
@@ -82,19 +79,21 @@ export const SingleProductCategory = ({allSingleProducts} : {allSingleProducts: 
                           </LikeButtonContainer>
                           <ProductImage>
                               <Image
-                                src={category.featured_image}
-                                alt={category.title}
+                                src={product.src}
+                                alt={product.alt}
                                 width={109}
                                 height={107}
                               />
                           </ProductImage>
                           <Spacer height={5}/>
-                          <span className='font-bold text-[20px] text-[#393939]'>{category.title}</span>
-                          <span className='text-[#393939]'>{format_price(category.products_count)}</span>
+                          <span className='font-bold text-[20px] text-[#393939]'>{product.name}</span>
+                          <span className='text-[#393939]'>{format_price(product.price)}</span>
                           <Spacer/>
                           <AddToCartButton>Add to cart</AddToCartButton>
                         </ ShopCard>
                         </Link>
+                    })
+                  }
                   </AllCategory>
               </PageWrapper>
             )}
